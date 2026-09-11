@@ -1232,6 +1232,151 @@
             .cta-band-actions .btn { width: 100%; justify-content: center; }
             .hero-actions { flex-direction: column; }
             .hero-actions .btn { width: 100%; justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-logo-wrap { text-align: center; margin-top: 32px; }
+            .sell-grid { grid-template-columns: 1fr; }
+            .sell-form-card { margin-top: 32px; }
+        }
+
+        /* =============================================
+           ABOUT SECTION
+        ============================================= */
+        .about-section { background: var(--cream-band); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: clamp(40px, 6vw, 72px);
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .about-text p:last-child { margin-bottom: 0; }
+        .about-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .about-logo-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 24px;
+            background: var(--paper-white);
+            padding: 20px;
+            border: 1px solid var(--line-light);
+        }
+        .about-logo-name {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ink);
+            text-align: center;
+        }
+        .about-logo-name span { color: var(--rust); }
+
+        /* =============================================
+           SELL SECTION ("Prodat nemovitost")
+        ============================================= */
+        .sell-section { background: var(--paper-soft); }
+        .sell-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 72px);
+            align-items: flex-start;
+        }
+        .sell-text p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+        .sell-benefits {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .sell-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--ink);
+            line-height: 1.5;
+        }
+        .sell-benefits li::before {
+            content: '';
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(23,75,81,0.1);
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23174b51' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-size: 14px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .sell-form-card {
+            background: var(--paper-white);
+            border: 1px solid var(--line-light);
+            border-radius: var(--radius);
+            padding: clamp(24px, 3vw, 36px);
+        }
+        .sell-form-card h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .sell-form-card .contact-form-sub { margin-bottom: 20px; }
+        .sell-form-card .form-group { margin-bottom: 12px; }
+        .sell-form-card .form-group:last-of-type { margin-bottom: 0; }
+        .sell-form-card .form-actions { margin-top: 16px; }
+
+        /* =============================================
+           COOKIES BANNER
+        ============================================= */
+        .cookies-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: var(--paper-white);
+            box-shadow: 0 -4px 24px rgba(16,24,32,0.1);
+            padding: 20px 0;
+            border-top: 1px solid var(--line-light);
+        }
+        .cookies-banner.hidden { display: none; }
+        .cookies-inner {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            justify-content: space-between;
+        }
+        .cookies-text {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.65;
+            max-width: 900px;
+        }
+        .cookies-btn {
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .cookies-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-logo-wrap { margin-top: 32px; }
+            .sell-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1263,11 +1408,11 @@
                 </div>
                 <div class="topbar-divider"></div>
                 <div class="topbar-auth">
-                    <a href="#">
+                    <a href="https://www.e-drazby.cz/" target="_blank">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
                         Přihlášení
                     </a>
-                    <a href="#">
+                    <a href="https://www.e-drazby.cz/" target="_blank">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
                         Registrace
                     </a>
@@ -1294,7 +1439,7 @@
                 <button class="nav-search-btn" aria-label="Vyhledávání">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
-                <a href="#kontakt" class="btn btn-filled btn-sm nav-cta">Prodat nemovitost</a>
+                <a href="#prodat" class="btn btn-filled btn-sm nav-cta">Prodat nemovitost</a>
                 <button class="nav-toggle" id="navToggle" aria-label="Menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -1319,12 +1464,12 @@
             <a href="#proces" class="mobile-nav-link">Jak to funguje</a>
             <a href="#funkce" class="mobile-nav-link">Funkce</a>
             <a href="#kontakt" class="mobile-nav-link">Kontakt</a>
-            <a href="#" class="mobile-nav-link">Archiv dražeb</a>
-            <a href="#" class="mobile-nav-link">Hlídací pes</a>
+            <a href="https://www.e-drazby.cz/" target="_blank" class="mobile-nav-link">Archiv dražeb</a>
+            <a href="https://www.e-drazby.cz/" target="_blank" class="mobile-nav-link">Hlídací pes</a>
         </div>
         <div class="mobile-nav-bottom">
-            <a href="#kontakt" class="btn btn-rust">Prodat nemovitost</a>
-            <a href="#" class="btn btn-ghost">Přihlášení</a>
+            <a href="#prodat" class="btn btn-rust">Prodat nemovitost</a>
+            <a href="https://www.e-drazby.cz/" target="_blank" class="btn btn-ghost">Přihlášení</a>
         </div>
     </div>
 
@@ -1335,9 +1480,9 @@
             <h1>Pomáháme dosahovat maximální <em>hodnoty</em> vašeho majetku</h1>
             <p class="hero-sub">Dražby, licitace a výběrová řízení s důrazem na transparentnost, strategii a výsledek. Více než 13 let na trhu.</p>
 
-            <div class="hero-search">
-                <input type="text" placeholder="Hledejte nemovitost, lokalitu...">
-                <select>
+            <form class="hero-search" id="heroSearchForm" action="https://www.e-drazby.cz/" method="get">
+                <input type="text" name="q" placeholder="Hledejte nemovitost, lokalitu...">
+                <select name="kraj">
                     <option value="">Celá ČR</option>
                     <option value="praha">Praha</option>
                     <option value="stredocesky">Středočeský kraj</option>
@@ -1354,18 +1499,18 @@
                     <option value="moravskoslezsky">Moravskoslezský kraj</option>
                     <option value="zlinsky">Zlínský kraj</option>
                 </select>
-                <button class="hero-search-btn">
+                <button type="submit" class="hero-search-btn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     Hledat
                 </button>
-            </div>
+            </form>
 
             <div class="hero-actions">
-                <a href="#kontakt" class="btn btn-rust">
+                <a href="#prodat" class="btn btn-rust">
                     Chci prodat nemovitost
                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
-                <a href="#" class="btn btn-ghost-light">Testovací aukce</a>
+                <a href="https://www.e-drazby.cz/" target="_blank" class="btn btn-ghost-light">Testovací aukce</a>
             </div>
         </div>
         <div class="hero-image">
@@ -1429,39 +1574,39 @@
                     <h2 class="section-title">Hledejte podle <em>typu</em></h2>
                     <p class="section-desc">Od rodinných domů přes komerční prostory až po zahraniční investice.</p>
                 </div>
-                <a href="#" class="btn btn-ghost">Všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                <a href="https://www.e-drazby.cz/" target="_blank" class="btn btn-ghost">Všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
             <div class="cat-grid">
                 <!-- Row 1-2: Big left card + 2 stacked right -->
-                <a class="cat-card cat-domy reveal" href="#">
+                <a class="cat-card cat-domy reveal" href="#nabidky">
                     <img src="img/domy1.jpg" alt="Domy" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Domy</div>
                         <div class="cat-card-count">8 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-byty reveal reveal-d1" href="#">
+                <a class="cat-card cat-byty reveal reveal-d1" href="#nabidky">
                     <img src="img/byty.jpg" alt="Byty" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Byty</div>
                         <div class="cat-card-count">6 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-pozemky reveal reveal-d2" href="#">
+                <a class="cat-card cat-pozemky reveal reveal-d2" href="#nabidky">
                     <img src="img/pozemky.jpg" alt="Pozemky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Pozemky</div>
                         <div class="cat-card-count">5 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-komercni reveal reveal-d1" href="#">
+                <a class="cat-card cat-komercni reveal reveal-d1" href="#nabidky">
                     <img src="img/komercni.jpg" alt="Komerční" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Komerční</div>
                         <div class="cat-card-count">3 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-auta reveal reveal-d2" href="#">
+                <a class="cat-card cat-auta reveal reveal-d2" href="#nabidky">
                     <img src="img/auta.jpg" alt="Auta" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Auta</div>
@@ -1469,28 +1614,28 @@
                     </div>
                 </a>
                 <!-- Row 3 -->
-                <a class="cat-card cat-motorky reveal reveal-d1" href="#">
+                <a class="cat-card cat-motorky reveal reveal-d1" href="#nabidky">
                     <img src="img/motorky.jpg" alt="Motorky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Motorky</div>
                         <div class="cat-card-count">2 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-garaze reveal reveal-d2" href="#">
+                <a class="cat-card cat-garaze reveal reveal-d2" href="#nabidky">
                     <img src="img/garaze.jpg" alt="Garáže" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Garáže</div>
                         <div class="cat-card-count">4 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-zahranicni reveal reveal-d3" href="#">
+                <a class="cat-card cat-zahranicni reveal reveal-d3" href="#nabidky">
                     <img src="img/zahranicni.jpg" alt="Zahraniční investice" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Zahraniční investice</div>
                         <div class="cat-card-count">2 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-neverejne reveal reveal-d3" href="#">
+                <a class="cat-card cat-neverejne reveal reveal-d3" href="#nabidky">
                     <img src="img/neverejne.jpg" alt="Neveřejné nabídky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Exkluzivní &amp; neveřejné</div>
@@ -1510,12 +1655,12 @@
                     <h2 class="section-title">Nemovitosti <em>k prodeji</em></h2>
                     <p class="section-desc">Aktuální výběr z našich dražeb, licitací a výběrových řízení.</p>
                 </div>
-                <a href="#" class="btn btn-ghost">Archiv dražeb <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                <a href="https://www.e-drazby.cz/" target="_blank" class="btn btn-ghost">Archiv dražeb <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
             <div class="listings-grid">
 
                 <!-- REAL LISTING 1 -->
-                <a href="#" class="listing-card reveal">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal">
                     <div class="listing-img">
                         <img src="img/domy1.jpg" alt="RD Dubá" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-vyber">Výběrové řízení</span></div>
@@ -1548,7 +1693,7 @@
                 </a>
 
                 <!-- REAL LISTING 2 -->
-                <a href="#" class="listing-card reveal reveal-d1">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal reveal-d1">
                     <div class="listing-img">
                         <img src="img/pozemky.jpg" alt="Pozemek Praha" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-drazba">Dražba</span></div>
@@ -1577,7 +1722,7 @@
                 </a>
 
                 <!-- LISTING 3 -->
-                <a href="#" class="listing-card reveal reveal-d2">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal reveal-d2">
                     <div class="listing-img">
                         <img src="img/byty.jpg" alt="Byt Brno" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-licitace">Licitace</span></div>
@@ -1606,7 +1751,7 @@
                 </a>
 
                 <!-- LISTING 4 -->
-                <a href="#" class="listing-card reveal">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal">
                     <div class="listing-img">
                         <img src="img/domy2.jpg" alt="RD Liberec" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-drazba">Dražba</span></div>
@@ -1639,7 +1784,7 @@
                 </a>
 
                 <!-- LISTING 5 -->
-                <a href="#" class="listing-card reveal reveal-d1">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal reveal-d1">
                     <div class="listing-img">
                         <img src="img/komercni.jpg" alt="Komerční Praha" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-licitace">Licitace</span></div>
@@ -1668,7 +1813,7 @@
                 </a>
 
                 <!-- LISTING 6 -->
-                <a href="#" class="listing-card reveal reveal-d2">
+                <a href="https://www.e-drazby.cz/" target="_blank" class="listing-card reveal reveal-d2">
                     <div class="listing-img">
                         <img src="img/neverejne.jpg" alt="Exkluzivní nabídka" loading="lazy">
                         <div class="listing-badges"><span class="badge badge-exkluzivni">Exkluzivní</span></div>
@@ -1698,7 +1843,7 @@
 
             </div>
             <div class="listings-more reveal">
-                <a href="#" class="btn btn-filled">Zobrazit všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                <a href="https://www.e-drazby.cz/" target="_blank" class="btn btn-filled">Zobrazit všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
         </div>
     </section>
@@ -1716,25 +1861,25 @@
                     <div class="service-num">01</div>
                     <h3>Veřejné dražby</h3>
                     <p>Transparentní elektronické dražby s otevřenou soutěží. Ideální pro dosažení maximální tržní ceny. Celý proces probíhá online v reálném čase.</p>
-                    <a href="#" class="service-link">Více o dražbách <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="#kontakt" class="service-link">Více o dražbách <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
                 <div class="service-card">
                     <div class="service-num">02</div>
                     <h3>Licitace</h3>
                     <p>Forma aukce umožňující uzavření kupní smlouvy s nejvyšší nabídkou. Rychlý a efektivní způsob prodeje nemovitého i movitého majetku.</p>
-                    <a href="#" class="service-link">Více o licitacích <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="#kontakt" class="service-link">Více o licitacích <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
                 <div class="service-card">
                     <div class="service-num">03</div>
                     <h3>Výběrová řízení</h3>
                     <p>Strukturovaný výběr kupce na základě předem stanovených kritérií. Vhodné pro obce, instituce a složité majetkové transakce.</p>
-                    <a href="#" class="service-link">Více o řízeních <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="#kontakt" class="service-link">Více o řízeních <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
                 <div class="service-card">
                     <div class="service-num">04</div>
                     <h3>Přímý prodej</h3>
                     <p>Klasický prodej nemovitostí s kompletním servisem. Od ocenění přes marketing až po právní zajištění a předání novému vlastníkovi.</p>
-                    <a href="#" class="service-link">Více o prodeji <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="#kontakt" class="service-link">Více o prodeji <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
             </div>
         </div>
@@ -1849,6 +1994,26 @@
         </div>
     </section>
 
+    <!-- ======= O SPOLECNOSTI ======= -->
+    <section class="section about-section" id="o-nas">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">O nás</div>
+                <h2 class="section-title">O společnosti <em>e-dražby.cz</em></h2>
+            </div>
+            <div class="about-grid reveal">
+                <div class="about-text">
+                    <p>Společnost e-dražby.cz s.r.o. působí na trhu od roku 2013. Specializujeme se na prodej nemovitostí formou veřejných dražeb, licitací a výběrových řízení. Naším cílem je dosáhnout pro naše klienty maximální hodnoty jejich majetku při zachování plné transparentnosti celého procesu.</p>
+                    <p>Sídlíme v Hradci Králové a působíme po celé České republice. Mezi naše klienty patří soukromí vlastníci, firmy, města, obce i veřejné instituce.</p>
+                </div>
+                <div class="about-logo-wrap">
+                    <img src="img/favicon.png" alt="e-dražby.cz logo" class="about-logo-img">
+                    <div class="about-logo-name">e-dražby<span>.cz</span> s.r.o.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ======= CTA BAND ======= -->
     <section class="cta-band">
         <div class="cta-band-bg">
@@ -1863,6 +2028,53 @@
                 <div class="cta-band-actions">
                     <a href="#kontakt" class="btn btn-rust">Nezávazná konzultace <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                     <a href="tel:+420605203516" class="btn btn-ghost-light">Zavolat nám</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= PRODAT NEMOVITOST ======= -->
+    <section class="section sell-section" id="prodat">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Prodej nemovitosti</div>
+                <h2 class="section-title">Chci prodat <em>nemovitost</em></h2>
+            </div>
+            <div class="sell-grid">
+                <div class="sell-text reveal">
+                    <p>Prodáváte nemovitost a chcete dosáhnout co nejvyšší ceny? Využijte naše služby a prodejte transparentně formou dražby, licitace nebo výběrového řízení.</p>
+                    <ul class="sell-benefits">
+                        <li>Bezplatné ocenění nemovitosti</li>
+                        <li>Profesionální fotodokumentace a prezentace</li>
+                        <li>Marketing na předních realitních portálech</li>
+                        <li>Právní servis a příprava smluv</li>
+                        <li>Kompletní organizace celého procesu</li>
+                        <li>Dosažení maximální tržní ceny</li>
+                    </ul>
+                </div>
+                <div class="sell-form-card reveal reveal-d1">
+                    <h3>Rychlá konzultace</h3>
+                    <p class="contact-form-sub">Zanechte nám kontakt a ozveme se vám do 24 hodin.</p>
+                    <form>
+                        <div class="form-group">
+                            <label>Jméno a příjmení *</label>
+                            <input type="text" placeholder="Vaše jméno" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon *</label>
+                            <input type="tel" placeholder="+420 xxx xxx xxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="vas@email.cz">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-rust" style="width:100%; justify-content:center;">
+                                Chci nezávaznou konzultaci
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1919,10 +2131,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-map">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Zobrazit na mapě — Nerudova 956/24, Hradec Králové
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2548.9!2d15.8326!3d50.2092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c2b116e31!2sNerudova+956%2F24!5e0!3m2!1sen!2scz!4v1" width="100%" height="200" style="border:0; border-radius: 12px; margin-top: 24px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
                 <div class="contact-form-wrap reveal">
@@ -1986,22 +2195,22 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo-wrap">
+                    <a href="#header" class="logo-wrap">
                         <img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon">
                         <div class="logo-text">e-dražby<span>.cz</span></div>
                     </a>
                     <p>Specialista na prodej nemovitostí formou dražeb, licitací a výběrových řízení. Transparentně a za nejlepší cenu od roku 2013.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="Facebook">
+                        <a href="#" target="_blank" aria-label="Facebook">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
                         </a>
-                        <a href="#" aria-label="LinkedIn">
+                        <a href="#" target="_blank" aria-label="LinkedIn">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
-                        <a href="#" aria-label="Instagram">
+                        <a href="#" target="_blank" aria-label="Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
-                        <a href="#" aria-label="YouTube">
+                        <a href="#" target="_blank" aria-label="YouTube">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#0d1a24"/></svg>
                         </a>
                     </div>
@@ -2013,51 +2222,63 @@
                         <li><a href="#sluzby">Služby</a></li>
                         <li><a href="#proces">Jak to funguje</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
-                        <li><a href="#">Ceník služeb</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Ceník služeb</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Služby</h4>
                     <ul>
-                        <li><a href="#">Veřejné dražby</a></li>
-                        <li><a href="#">Licitace</a></li>
-                        <li><a href="#">Výběrová řízení</a></li>
-                        <li><a href="#">Přímý prodej</a></li>
-                        <li><a href="#">Formuláře</a></li>
+                        <li><a href="#sluzby">Veřejné dražby</a></li>
+                        <li><a href="#sluzby">Licitace</a></li>
+                        <li><a href="#sluzby">Výběrová řízení</a></li>
+                        <li><a href="#sluzby">Přímý prodej</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Formuláře</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Pro klienty</h4>
                     <ul>
-                        <li><a href="#">Registrace</a></li>
-                        <li><a href="#">Přihlášení</a></li>
-                        <li><a href="#">Hlídací pes</a></li>
-                        <li><a href="#">Archiv dražeb</a></li>
-                        <li><a href="#">Testovací aukce</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Registrace</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Přihlášení</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Hlídací pes</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Archiv dražeb</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Testovací aukce</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Právní</h4>
                     <ul>
-                        <li><a href="#">Podmínky provozu</a></li>
-                        <li><a href="#">Obchodní podmínky</a></li>
-                        <li><a href="#">Ochrana osobních údajů</a></li>
-                        <li><a href="#">GDPR</a></li>
-                        <li><a href="#">Kariéra</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Podmínky provozu</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Obchodní podmínky</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Ochrana osobních údajů</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">GDPR</a></li>
+                        <li><a href="https://www.e-drazby.cz/" target="_blank">Kariéra</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2013&ndash;2026 e-dražby.cz s.r.o. Všechna práva vyhrazena. IČ: 26014688</p>
                 <div class="footer-legal">
-                    <a href="#">Podmínky provozu</a>
-                    <a href="#">Obchodní podmínky</a>
-                    <a href="#">GDPR</a>
-                    <a href="#">Mapa webu</a>
+                    <a href="https://www.e-drazby.cz/" target="_blank">Podmínky provozu</a>
+                    <a href="https://www.e-drazby.cz/" target="_blank">Obchodní podmínky</a>
+                    <a href="https://www.e-drazby.cz/" target="_blank">GDPR</a>
+                    <a href="https://www.e-drazby.cz/" target="_blank">Mapa webu</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <span style="opacity: 0.6;">Vytvořil tým SOFFITECH s.r.o.</span>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ======= COOKIES BANNER ======= -->
+    <div class="cookies-banner" id="cookiesBanner">
+        <div class="container">
+            <div class="cookies-inner">
+                <p class="cookies-text">Provozovatel webu e-dražby.cz a jeho mutací, společnost e-dražby.cz s.r.o., se sídlem Nerudova 956/24, 500 02 Hradec Králové, IČ: 26014688, využívá na tomto webu cookies potřebné pro fungování webových stránek. Nepoužíváme je pro statistické ani marketingové účely.</p>
+                <button class="btn btn-filled cookies-btn" id="cookiesAccept">Souhlasím</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ======= SCRIPTS ======= -->
     <script>
@@ -2082,7 +2303,7 @@
             document.body.style.overflow = '';
         });
 
-        // Close mobile nav on link click
+        // Close mobile nav on internal link click
         mobileNav.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 mobileNav.classList.remove('open');
@@ -2107,11 +2328,11 @@
             revealObserver.observe(el);
         });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for anchor links (only internal #anchors, not external URLs)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href === '#') return;
+                if (href === '#') return; // Allow default behavior for bare #
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
@@ -2120,6 +2341,26 @@
                     window.scrollTo({ top, behavior: 'smooth' });
                 }
             });
+        });
+
+        // Hero search form — redirect to e-drazby.cz
+        const heroSearchForm = document.getElementById('heroSearchForm');
+        if (heroSearchForm) {
+            heroSearchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                window.open('https://www.e-drazby.cz/', '_blank');
+            });
+        }
+
+        // Cookies banner
+        const cookiesBanner = document.getElementById('cookiesBanner');
+        const cookiesAccept = document.getElementById('cookiesAccept');
+        if (localStorage.getItem('edrazby_cookies_accepted') === 'true') {
+            cookiesBanner.classList.add('hidden');
+        }
+        cookiesAccept.addEventListener('click', () => {
+            localStorage.setItem('edrazby_cookies_accepted', 'true');
+            cookiesBanner.classList.add('hidden');
         });
     </script>
 </body>
