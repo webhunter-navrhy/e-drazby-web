@@ -7,37 +7,39 @@
     <meta name="description" content="Dražby, licitace a výběrová řízení nemovitostí. Transparentní prodej s důrazem na maximální hodnotu vašeho majetku.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --paper: #f4eee6;
-            --paper-soft: #fbf7f1;
+            --paper-soft: #faf7f2;
             --paper-white: #fffaf4;
             --cream-band: #eee8df;
             --ink: #101820;
             --navy: #0d1a24;
+            --navy-soft: #132430;
             --teal: #174b51;
-            --teal-light: #1a5f6e;
+            --teal-light: #1d6169;
             --rust: #b45b3e;
+            --rust-light: #c96f52;
             --coral: #ef643c;
             --muted: #6f6b63;
-            --line: rgba(16, 24, 32, 0.14);
-            --line-light: rgba(16, 24, 32, 0.07);
+            --muted-light: #9a958c;
+            --line: rgba(16, 24, 32, 0.12);
+            --line-light: rgba(16, 24, 32, 0.06);
             --white: #ffffff;
-
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-text: 'Inter', sans-serif;
-
-            --container: min(100% - 40px, 1180px);
-            --radius: 12px;
-            --radius-pill: 999px;
-            --transition: 0.3s ease;
+            --container: min(100% - 40px, 1200px);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --pill: 999px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 0.35s var(--ease);
         }
 
         html { scroll-behavior: smooth; }
-
         body {
             font-family: var(--font-text);
             font-weight: 400;
@@ -45,122 +47,96 @@
             background: var(--paper);
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
-
-        .container {
-            width: var(--container);
-            margin: 0 auto;
-        }
-
+        .container { width: var(--container); margin: 0 auto; }
         img { display: block; max-width: 100%; }
         a { text-decoration: none; color: inherit; }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
+           BUTTONS
+        ═══════════════════════════════════ */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-text);
+            font-size: 14px; font-weight: 600;
+            padding: 12px 26px;
+            border-radius: var(--pill);
+            border: none; cursor: pointer;
+            transition: all var(--transition);
+            line-height: 1.4;
+            white-space: nowrap;
+        }
+        .btn svg { width: 14px; height: 14px; transition: transform 0.25s ease; }
+        .btn:hover svg { transform: translateX(3px); }
+
+        .btn-filled { background: var(--ink); color: var(--paper-white); }
+        .btn-filled:hover { background: var(--teal); }
+        .btn-rust { background: var(--rust); color: var(--white); }
+        .btn-rust:hover { background: var(--rust-light); box-shadow: 0 6px 24px rgba(180,91,62,0.3); }
+        .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+        .btn-ghost:hover { border-color: var(--ink); }
+        .btn-ghost-light { background: transparent; color: var(--paper-white); border: 1px solid rgba(255,255,255,0.2); }
+        .btn-ghost-light:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+        .btn-white { background: var(--white); color: var(--ink); }
+        .btn-white:hover { background: var(--paper); }
+
+        .arrow-icon { width: 14px; height: 14px; }
+
+        /* ═══════════════════════════════════
            HEADER
-        ════════════════════════════════ */
+        ═══════════════════════════════════ */
         .header {
-            position: sticky;
-            top: 0; z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: var(--paper);
-            border-bottom: 1px solid var(--line);
-            transition: box-shadow var(--transition);
+            border-bottom: 1px solid var(--line-light);
+            transition: box-shadow var(--transition), background var(--transition);
         }
         .header.scrolled {
-            box-shadow: 0 2px 20px rgba(16,24,32,0.06);
+            box-shadow: 0 1px 16px rgba(16,24,32,0.06);
         }
         .header-inner {
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center;
             justify-content: space-between;
-            height: 72px;
+            height: 68px;
         }
-        .logo {
+
+        /* SVG Logo */
+        .logo-wrap { display: flex; align-items: center; gap: 10px; }
+        .logo-mark {
+            width: 36px; height: 36px;
+            background: var(--ink);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--paper-white);
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 16px; font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 18px; font-weight: 700;
             color: var(--ink);
             letter-spacing: -0.02em;
         }
-        .logo span { color: var(--rust); }
+        .logo-text span { color: var(--rust); }
 
-        .nav { display: flex; align-items: center; gap: 32px; }
-        .nav-links {
-            display: flex; align-items: center;
-            gap: 28px; list-style: none;
-        }
+        .nav { display: flex; align-items: center; gap: 28px; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
         .nav-links a {
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 14px; font-weight: 500;
             color: var(--muted);
             transition: color var(--transition);
         }
         .nav-links a:hover { color: var(--ink); }
         .nav-phone {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px; font-weight: 600;
             color: var(--ink);
             display: flex; align-items: center; gap: 6px;
         }
-        .nav-phone svg { width: 16px; height: 16px; color: var(--teal); }
-
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-family: var(--font-text);
-            font-size: 14px; font-weight: 600;
-            padding: 11px 24px;
-            border-radius: var(--radius-pill);
-            border: none; cursor: pointer;
-            transition: all var(--transition);
-            line-height: 1.4;
-        }
-        .btn-filled {
-            background: var(--ink);
-            color: var(--paper-white);
-        }
-        .btn-filled:hover {
-            background: var(--teal);
-        }
-        .btn-ghost {
-            background: transparent;
-            color: var(--ink);
-            border: 1px solid var(--line);
-        }
-        .btn-ghost:hover {
-            border-color: var(--ink);
-        }
-        .btn-light {
-            background: var(--paper);
-            color: var(--ink);
-            border: 1px solid var(--line);
-        }
-        .btn-light:hover {
-            background: var(--cream-band);
-        }
-        .btn-rust {
-            background: var(--rust);
-            color: var(--white);
-        }
-        .btn-rust:hover {
-            background: #a04e33;
-        }
-        .btn-teal {
-            background: var(--teal);
-            color: var(--white);
-        }
-        .btn-teal:hover {
-            background: var(--teal-light);
-        }
-        .btn svg {
-            width: 14px; height: 14px;
-            transition: transform 0.2s ease;
-        }
-        .btn:hover svg { transform: translateX(2px); }
-
-        /* Mobile toggle */
+        .nav-phone svg { width: 14px; height: 14px; color: var(--rust); }
         .nav-toggle {
-            display: none;
-            background: none; border: none; cursor: pointer;
-            padding: 8px;
+            display: none; background: none; border: none; cursor: pointer; padding: 8px;
         }
         .nav-toggle span {
             display: block; width: 20px; height: 2px;
@@ -168,41 +144,41 @@
             transition: all 0.3s ease;
         }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            HERO
-        ════════════════════════════════ */
+        ═══════════════════════════════════ */
         .hero {
             position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 88vh;
             background: var(--navy);
+            overflow: hidden;
         }
-        .hero-bg {
-            position: absolute; inset: 0;
-            background:
-                linear-gradient(135deg, rgba(13,26,36,0.85) 0%, rgba(13,26,36,0.55) 100%),
-                url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=1600&h=900&fit=crop') center/cover no-repeat;
-        }
-        .hero-content {
-            position: relative; z-index: 2;
-            max-width: 720px;
-            padding: 80px 0;
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 80px);
+            position: relative;
+            z-index: 2;
         }
         .hero-eyebrow {
             font-family: var(--font-display);
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            font-size: 12px; font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--rust);
-            margin-bottom: 20px;
-            opacity: 0.9;
+            color: var(--rust-light);
+            margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .hero-eyebrow::before {
+            content: ''; width: 24px; height: 2px;
+            background: var(--rust);
         }
         .hero h1 {
             font-family: var(--font-display);
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(34px, 4.2vw, 54px);
             font-weight: 800;
             color: var(--paper-white);
             line-height: 1.1;
@@ -210,128 +186,178 @@
             margin-bottom: 20px;
         }
         .hero h1 em {
-            font-style: italic;
-            font-weight: 500;
+            font-style: italic; font-weight: 500;
             color: var(--coral);
         }
         .hero-sub {
-            font-size: clamp(16px, 1.8vw, 18px);
-            color: rgba(244,238,230,0.6);
-            line-height: 1.7;
-            max-width: 520px;
+            font-size: clamp(15px, 1.5vw, 17px);
+            color: rgba(244,238,230,0.5);
+            line-height: 1.75;
+            max-width: 440px;
             margin-bottom: 36px;
         }
-        .hero-actions {
-            display: flex; gap: 12px; flex-wrap: wrap;
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .hero-image::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, var(--navy) 0%, transparent 30%);
+        }
+        .hero-stats {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(13,26,36,0.85);
+            backdrop-filter: blur(12px);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            z-index: 3;
+        }
+        .hero-stat {
+            padding: 24px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat-val {
+            font-family: var(--font-display);
+            font-size: clamp(22px, 2.5vw, 32px);
+            font-weight: 800;
+            color: var(--paper-white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .hero-stat-label {
+            font-size: 12px;
+            color: rgba(244,238,230,0.4);
         }
 
-        /* ════════════════════════════════
-           SECTION SHARED
-        ════════════════════════════════ */
-        .section {
-            padding: clamp(72px, 10vw, 120px) 0;
-        }
+        /* ═══════════════════════════════════
+           CATEGORIES
+        ═══════════════════════════════════ */
+        .section { padding: clamp(72px, 10vw, 120px) 0; }
         .section-eyebrow {
             font-family: var(--font-display);
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 12px; font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--rust);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-eyebrow::before {
+            content: ''; width: 20px; height: 2px;
+            background: var(--rust);
         }
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(28px, 4vw, 42px);
+            font-size: clamp(28px, 3.5vw, 42px);
             font-weight: 800;
             color: var(--ink);
             line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 14px;
+            letter-spacing: -0.025em;
+            margin-bottom: 12px;
         }
-        .section-title em {
-            font-style: italic;
-            font-weight: 500;
-        }
+        .section-title em { font-style: italic; font-weight: 500; }
         .section-desc {
             font-size: 16px;
             color: var(--muted);
-            max-width: 520px;
+            max-width: 500px;
             line-height: 1.7;
         }
-        .section-header {
-            margin-bottom: clamp(40px, 6vw, 64px);
-        }
+        .section-header { margin-bottom: clamp(40px, 6vw, 56px); }
         .section-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
+            display: flex; justify-content: space-between;
+            align-items: flex-end; gap: 32px;
         }
 
-        /* ════════════════════════════════
-           STATS STRIP
-        ════════════════════════════════ */
-        .stats-strip {
-            background: var(--paper-soft);
-            border-bottom: 1px solid var(--line);
-        }
-        .stats-strip .container {
+        .categories-section { background: var(--paper-soft); }
+        .cat-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 200px 200px;
+            gap: 12px;
         }
-        .stat {
-            padding: 36px 16px;
-            text-align: center;
-            border-right: 1px solid var(--line-light);
+        .cat-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
         }
-        .stat:last-child { border-right: none; }
-        .stat-value {
+        .cat-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease);
+        }
+        .cat-card:hover img { transform: scale(1.06); }
+        .cat-card::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(13,26,36,0.85) 0%, rgba(13,26,36,0.1) 60%);
+            transition: background 0.4s ease;
+        }
+        .cat-card:hover::after {
+            background: linear-gradient(to top, rgba(13,26,36,0.9) 0%, rgba(13,26,36,0.2) 60%);
+        }
+        .cat-card-content {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 18px;
+            z-index: 2;
+        }
+        .cat-card-name {
             font-family: var(--font-display);
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 800;
-            color: var(--teal);
-            line-height: 1;
-            margin-bottom: 6px;
+            font-size: 16px; font-weight: 700;
+            color: var(--white);
+            margin-bottom: 2px;
         }
-        .stat-label {
-            font-size: 13px;
-            color: var(--muted);
+        .cat-card-count {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .cat-card.large {
+            grid-column: span 2;
+        }
+        .cat-card.featured {
+            grid-row: span 2;
         }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            SERVICES (01–04)
-        ════════════════════════════════ */
+        ═══════════════════════════════════ */
         .services-section { background: var(--paper); }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 1px;
+            background: var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
         }
         .service-card {
             background: var(--paper-white);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 32px 24px;
+            padding: 36px 28px;
             transition: all var(--transition);
             display: flex; flex-direction: column;
         }
         .service-card:hover {
-            border-color: var(--teal);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(16,24,32,0.08);
+            background: var(--white);
         }
         .service-num {
             font-family: var(--font-display);
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 12px; font-weight: 700;
             color: var(--rust);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            letter-spacing: 0.04em;
         }
         .service-card h3 {
             font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 19px; font-weight: 700;
             color: var(--ink);
             margin-bottom: 10px;
             line-height: 1.3;
@@ -340,138 +366,119 @@
             font-size: 14px;
             color: var(--muted);
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex: 1;
         }
         .service-link {
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 13px; font-weight: 600;
             color: var(--teal);
             display: inline-flex; align-items: center; gap: 6px;
-            transition: gap var(--transition);
+            transition: gap var(--transition), color var(--transition);
         }
-        .service-link:hover { gap: 10px; }
+        .service-link:hover { gap: 10px; color: var(--rust); }
         .service-link svg { width: 14px; height: 14px; }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            LISTINGS
-        ════════════════════════════════ */
-        .listings-section { background: var(--paper-soft); }
+        ═══════════════════════════════════ */
+        .listings-section { background: var(--cream-band); }
         .listings-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
         }
         .listing-card {
             background: var(--paper-white);
-            border: 1px solid var(--line);
+            border: 1px solid var(--line-light);
             border-radius: var(--radius);
             overflow: hidden;
             transition: all var(--transition);
+            display: block;
         }
         .listing-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(16,24,32,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(16,24,32,0.1);
             border-color: transparent;
         }
         .listing-img {
             position: relative;
-            height: 200px;
+            height: 210px;
             overflow: hidden;
-            background: var(--cream-band);
         }
         .listing-img img {
             width: 100%; height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s var(--ease);
         }
-        .listing-card:hover .listing-img img {
-            transform: scale(1.04);
-        }
+        .listing-card:hover .listing-img img { transform: scale(1.05); }
         .listing-badges {
             position: absolute;
             top: 12px; left: 12px;
             display: flex; gap: 6px;
         }
         .badge {
-            padding: 4px 10px;
-            border-radius: var(--radius-pill);
-            font-size: 11px; font-weight: 600;
+            padding: 5px 12px;
+            border-radius: var(--pill);
+            font-size: 11px; font-weight: 700;
             letter-spacing: 0.02em;
         }
         .badge-drazba { background: var(--rust); color: var(--white); }
         .badge-licitace { background: var(--teal); color: var(--white); }
         .badge-vyber { background: var(--ink); color: var(--paper-white); }
         .badge-exkluzivni { background: var(--coral); color: var(--white); }
-        .badge-status {
-            background: rgba(255,255,255,0.9);
-            color: var(--ink);
-            backdrop-filter: blur(4px);
-        }
 
-        .listing-body { padding: 20px; }
-        .listing-location {
-            display: flex; align-items: center; gap: 5px;
-            font-size: 12px;
-            color: var(--muted);
+        .listing-body { padding: 20px 20px 22px; }
+        .listing-loc {
+            display: flex; align-items: center; gap: 4px;
+            font-size: 12px; color: var(--muted);
             margin-bottom: 6px;
         }
-        .listing-location svg { width: 13px; height: 13px; color: var(--rust); flex-shrink: 0; }
+        .listing-loc svg { width: 12px; height: 12px; color: var(--rust); flex-shrink: 0; }
         .listing-title {
             font-family: var(--font-display);
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 17px; font-weight: 700;
             line-height: 1.35;
             margin-bottom: 14px;
             color: var(--ink);
         }
         .listing-specs {
             display: flex; gap: 14px;
-            padding-bottom: 14px;
-            margin-bottom: 14px;
+            padding-bottom: 14px; margin-bottom: 14px;
             border-bottom: 1px solid var(--line-light);
         }
         .listing-spec {
-            display: flex; align-items: center; gap: 5px;
-            font-size: 12px;
-            color: var(--muted);
+            display: flex; align-items: center; gap: 4px;
+            font-size: 12px; color: var(--muted);
         }
-        .listing-spec svg { width: 14px; height: 14px; color: var(--muted); }
+        .listing-spec svg { width: 13px; height: 13px; }
         .listing-bottom {
-            display: flex;
-            justify-content: space-between;
+            display: flex; justify-content: space-between;
             align-items: flex-end;
         }
         .listing-price-label {
-            font-size: 11px;
-            color: var(--muted);
+            font-size: 10px; color: var(--muted-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
             margin-bottom: 2px;
         }
         .listing-price {
             font-family: var(--font-display);
-            font-size: 19px;
-            font-weight: 700;
+            font-size: 18px; font-weight: 700;
             color: var(--ink);
         }
         .listing-detail {
-            font-size: 11px;
-            color: var(--muted);
+            font-size: 11px; color: var(--muted);
             text-align: right;
         }
         .listing-detail strong {
-            display: block;
-            color: var(--ink);
-            font-weight: 600;
-            font-size: 12px;
+            display: block; font-weight: 600;
+            color: var(--ink); font-size: 12px;
         }
-        .listings-more {
-            text-align: center;
-            margin-top: 40px;
-        }
+        .listings-more { text-align: center; margin-top: 40px; }
 
-        /* ════════════════════════════════
-           HOW IT WORKS
-        ════════════════════════════════ */
+        /* ═══════════════════════════════════
+           PROCESS
+        ═══════════════════════════════════ */
         .process-section { background: var(--paper); }
         .process-grid {
             display: grid;
@@ -479,120 +486,127 @@
             gap: 0;
         }
         .process-step {
-            padding: 32px 28px;
+            padding: 32px 24px;
             border-right: 1px solid var(--line-light);
-            position: relative;
         }
         .process-step:last-child { border-right: none; }
         .process-step-num {
             font-family: var(--font-display);
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 11px; font-weight: 700;
             color: var(--rust);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             margin-bottom: 20px;
         }
         .process-step-icon {
             width: 44px; height: 44px;
-            border-radius: 10px;
+            border-radius: 11px;
             background: var(--cream-band);
             display: flex; align-items: center; justify-content: center;
             margin-bottom: 18px;
         }
-        .process-step-icon svg { width: 22px; height: 22px; color: var(--teal); }
+        .process-step-icon svg { width: 20px; height: 20px; color: var(--teal); }
         .process-step h4 {
             font-family: var(--font-display);
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 16px; font-weight: 700;
             margin-bottom: 8px;
-            color: var(--ink);
         }
         .process-step p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--muted);
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            VALUES
-        ════════════════════════════════ */
-        .values-section {
-            background: var(--cream-band);
-        }
+        ═══════════════════════════════════ */
+        .values-section { background: var(--paper-soft); }
         .values-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
         }
         .value-card {
             background: var(--paper-white);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 32px;
-            display: flex; gap: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: background var(--transition);
         }
+        .value-card:hover { background: var(--white); }
         .value-icon {
-            width: 48px; height: 48px;
-            border-radius: 10px;
-            background: var(--paper);
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: var(--cream-band);
             display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
+            margin: 0 auto 16px;
+            transition: all var(--transition);
         }
-        .value-icon svg { width: 22px; height: 22px; color: var(--teal); }
+        .value-card:hover .value-icon {
+            background: var(--teal);
+        }
+        .value-icon svg { width: 22px; height: 22px; color: var(--teal); transition: color var(--transition); }
+        .value-card:hover .value-icon svg { color: var(--white); }
         .value-card h4 {
             font-family: var(--font-display);
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: var(--ink);
+            font-size: 16px; font-weight: 700;
+            margin-bottom: 8px;
         }
         .value-card p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--muted);
             line-height: 1.65;
         }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            CTA BAND
-        ════════════════════════════════ */
+        ═══════════════════════════════════ */
         .cta-band {
-            background: var(--navy);
-            padding: clamp(56px, 8vw, 88px) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band-bg {
+            position: absolute; inset: 0;
+        }
+        .cta-band-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .cta-band-bg::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(13,26,36,0.92) 40%, rgba(13,26,36,0.7) 100%);
         }
         .cta-band-inner {
-            display: flex;
-            align-items: center;
+            position: relative; z-index: 2;
+            padding: clamp(64px, 9vw, 100px) 0;
+            display: flex; align-items: center;
             justify-content: space-between;
             gap: 40px;
         }
         .cta-band h2 {
             font-family: var(--font-display);
-            font-size: clamp(26px, 3.5vw, 36px);
+            font-size: clamp(26px, 3.2vw, 38px);
             font-weight: 800;
             color: var(--paper-white);
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
-        .cta-band h2 em {
-            font-style: italic;
-            font-weight: 500;
-            color: var(--coral);
-        }
+        .cta-band h2 em { font-style: italic; font-weight: 500; color: var(--coral); }
         .cta-band p {
             font-size: 15px;
             color: rgba(244,238,230,0.5);
-            margin-top: 8px;
-            max-width: 440px;
+            margin-top: 10px;
+            max-width: 420px;
         }
-        .cta-band-actions {
-            display: flex; gap: 12px;
-            flex-shrink: 0;
-        }
+        .cta-band-actions { display: flex; gap: 12px; flex-shrink: 0; }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            CONTACT
-        ════════════════════════════════ */
-        .contact-section { background: var(--paper-soft); }
+        ═══════════════════════════════════ */
+        .contact-section { background: var(--paper); }
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -600,202 +614,178 @@
         }
         .contact-info h3 {
             font-family: var(--font-display);
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--ink);
+            font-size: 22px; font-weight: 700;
+            margin-bottom: 10px;
         }
         .contact-info > p {
             font-size: 15px;
             color: var(--muted);
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
-        .contact-items { display: flex; flex-direction: column; gap: 20px; }
-        .contact-item {
-            display: flex; gap: 14px;
-            align-items: flex-start;
-        }
+        .contact-items { display: flex; flex-direction: column; gap: 18px; }
+        .contact-item { display: flex; gap: 14px; align-items: flex-start; }
         .contact-item-icon {
-            width: 40px; height: 40px;
+            width: 38px; height: 38px;
             border-radius: 10px;
             background: var(--cream-band);
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .contact-item-icon svg { width: 18px; height: 18px; color: var(--teal); }
+        .contact-item-icon svg { width: 16px; height: 16px; color: var(--teal); }
         .contact-item-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--muted);
+            font-size: 10px; font-weight: 600;
+            color: var(--muted-light);
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
-        .contact-item-value {
-            font-size: 15px;
-            color: var(--ink);
-            line-height: 1.5;
-        }
+        .contact-item-value { font-size: 14px; color: var(--ink); line-height: 1.5; }
         .contact-form-wrap {
             background: var(--paper-white);
-            border: 1px solid var(--line);
+            border: 1px solid var(--line-light);
             border-radius: var(--radius);
-            padding: clamp(28px, 4vw, 40px);
+            padding: clamp(24px, 3vw, 36px);
         }
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 14px;
+            gap: 12px; margin-bottom: 12px;
         }
         .form-group { display: flex; flex-direction: column; }
         .form-group.full { grid-column: 1 / -1; }
         .form-group label {
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 12px; font-weight: 500;
             color: var(--ink);
             margin-bottom: 5px;
         }
         .form-group input,
         .form-group textarea,
         .form-group select {
-            padding: 12px 14px;
+            padding: 11px 14px;
             border: 1px solid var(--line);
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             font-family: var(--font-text);
-            font-size: 14px;
-            color: var(--ink);
+            font-size: 14px; color: var(--ink);
             background: var(--paper-soft);
             outline: none;
             transition: border-color var(--transition);
         }
         .form-group input:focus,
         .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--teal);
-        }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .form-group select { cursor: pointer; }
-        .form-actions { margin-top: 6px; }
+        .form-group select:focus { border-color: var(--teal); }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-actions { margin-top: 4px; }
         .form-actions .btn { width: 100%; justify-content: center; }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            FOOTER
-        ════════════════════════════════ */
+        ═══════════════════════════════════ */
         .footer {
             background: var(--navy);
-            color: rgba(244,238,230,0.5);
-            padding: 56px 0 0;
+            color: rgba(244,238,230,0.45);
+            padding: 52px 0 0;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
             gap: 40px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid rgba(244,238,230,0.08);
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .footer-brand .logo {
-            font-size: 22px;
-            color: var(--paper-white);
-            margin-bottom: 14px;
-            display: inline-block;
-        }
-        .footer-brand p {
-            font-size: 14px;
-            line-height: 1.65;
-            max-width: 280px;
+        .footer-brand .logo-text { color: var(--paper-white); font-size: 20px; }
+        .footer-brand > p {
+            font-size: 14px; line-height: 1.65;
+            max-width: 260px; margin-top: 12px;
         }
         .footer-col h4 {
             font-family: var(--font-display);
-            font-size: 13px;
-            font-weight: 700;
-            color: rgba(244,238,230,0.7);
+            font-size: 12px; font-weight: 700;
+            color: rgba(244,238,230,0.65);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 18px;
+            letter-spacing: 0.07em;
+            margin-bottom: 16px;
         }
         .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a {
-            font-size: 14px;
-            transition: color var(--transition);
-        }
+        .footer-col li { margin-bottom: 9px; }
+        .footer-col a { font-size: 13px; transition: color var(--transition); }
         .footer-col a:hover { color: var(--paper-white); }
         .footer-bottom {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
+            padding: 18px 0;
+            display: flex; justify-content: space-between;
+            align-items: center; font-size: 12px;
         }
-        .footer-legal {
-            display: flex; gap: 20px;
-        }
+        .footer-legal { display: flex; gap: 20px; }
         .footer-legal a { transition: color var(--transition); }
         .footer-legal a:hover { color: var(--paper-white); }
 
-        /* ════════════════════════════════
-           REVEAL (subtle)
-        ════════════════════════════════ */
+        /* ═══════════════════════════════════
+           REVEAL
+        ═══════════════════════════════════ */
         .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
 
-        /* ════════════════════════════════
+        /* ═══════════════════════════════════
            RESPONSIVE
-        ════════════════════════════════ */
-        @media (max-width: 900px) {
+        ═══════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-image { height: 50vh; }
+            .hero-image::after {
+                background: linear-gradient(180deg, var(--navy) 0%, transparent 40%);
+            }
+            .hero-stats { position: relative; }
+            .cat-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 180px 180px 180px;
+            }
+            .cat-card.featured { grid-row: span 1; }
+            .cat-card.large { grid-column: span 1; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .listings-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
             .process-step:nth-child(2) { border-right: none; }
             .process-step:nth-child(1),
             .process-step:nth-child(2) { border-bottom: 1px solid var(--line-light); }
-            .values-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-            .cta-band-inner { flex-direction: column; text-align: center; }
-            .cta-band p { margin: 8px auto 0; }
-            .stats-strip .container { grid-template-columns: repeat(2, 1fr); }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 620px) {
-            .nav-links { display: none; }
-            .nav-phone { display: none; }
+            .nav-links, .nav-phone { display: none; }
             .nav-toggle { display: block; }
             .nav-links.open {
-                display: flex;
-                flex-direction: column;
-                position: fixed;
-                inset: 0;
-                background: var(--paper);
-                z-index: 200;
-                align-items: center;
-                justify-content: center;
-                gap: 20px;
+                display: flex; flex-direction: column;
+                position: fixed; inset: 0;
+                background: var(--paper); z-index: 200;
+                align-items: center; justify-content: center; gap: 20px;
             }
             .nav-links.open a { font-size: 18px; color: var(--ink); }
-            .services-grid { grid-template-columns: 1fr; }
-            .listings-grid { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: 1fr; }
-            .process-step { border-right: none; border-bottom: 1px solid var(--line-light); }
+            .hero-text { padding: 40px 24px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .cat-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .cat-card { height: 160px; }
+            .cat-card.large, .cat-card.featured { grid-column: span 1; grid-row: span 1; }
+            .services-grid, .listings-grid, .process-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .process-step { border-right: none !important; border-bottom: 1px solid var(--line-light); }
             .process-step:last-child { border-bottom: none; }
-            .stats-strip .container { grid-template-columns: 1fr 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; }
             .section-header-row { flex-direction: column; align-items: flex-start; }
-            .hero-actions { flex-direction: column; }
-            .hero-actions .btn { width: 100%; justify-content: center; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+            .cta-band-inner { flex-direction: column; text-align: center; }
             .cta-band-actions { flex-direction: column; width: 100%; }
             .cta-band-actions .btn { width: 100%; justify-content: center; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -804,67 +794,115 @@
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="header">
         <div class="container header-inner">
-            <a href="#" class="logo">e-dražby<span>.cz</span></a>
+            <a href="#" class="logo-wrap">
+                <div class="logo-mark">eD</div>
+                <div class="logo-text">e-dražby<span>.cz</span></div>
+            </a>
             <nav class="nav">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#nabidky">Nabídky</a></li>
+                    <li><a href="#kategorie">Nabídky</a></li>
                     <li><a href="#sluzby">Služby</a></li>
                     <li><a href="#proces">Jak to funguje</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
-                <a href="tel:+420000000000" class="nav-phone">
+                <a href="tel:+420605203516" class="nav-phone">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                     +420 605 203 516
                 </a>
-                <a href="#kontakt" class="btn btn-filled">Prodat nemovitost</a>
-                <button class="nav-toggle" id="navToggle">
-                    <span></span><span></span><span></span>
-                </button>
+                <a href="#kontakt" class="btn btn-filled" style="padding: 9px 20px; font-size: 13px;">Prodat nemovitost</a>
+                <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
             </nav>
         </div>
     </header>
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-eyebrow">Specialista na prodej nemovitostí</div>
-                <h1>Pomáháme dosahovat maximální <em>hodnoty</em> vašeho majetku</h1>
-                <p class="hero-sub">Reality, veřejné dražby a výběrová řízení s důrazem na transparentnost, strategii a výsledek.</p>
-                <div class="hero-actions">
-                    <a href="#kontakt" class="btn btn-rust">
-                        Chci prodat nemovitost
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#kontakt" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.2); color: var(--paper-white);">Chci konzultaci</a>
-                    <a href="#sluzby" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.2); color: var(--paper-white);">Jsem obec nebo město</a>
-                </div>
+        <div class="hero-text">
+            <div class="hero-eyebrow">Specialista na prodej nemovitostí</div>
+            <h1>Pomáháme dosahovat maximální <em>hodnoty</em> vašeho majetku</h1>
+            <p class="hero-sub">Dražby, licitace a výběrová řízení s důrazem na transparentnost, strategii a výsledek. Více než 10 let na trhu.</p>
+            <div class="hero-actions">
+                <a href="#kontakt" class="btn btn-rust">
+                    Chci prodat nemovitost
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <a href="#kontakt" class="btn btn-ghost-light">Chci konzultaci</a>
             </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Domy/IMG-20250330-WA0007.jpg" alt="Moderní architektura">
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="hero-stat-val">850+</div><div class="hero-stat-label">Prodaných nemovitostí</div></div>
+            <div class="hero-stat"><div class="hero-stat-val">12+</div><div class="hero-stat-label">Let zkušeností</div></div>
+            <div class="hero-stat"><div class="hero-stat-val">2 400+</div><div class="hero-stat-label">Spokojených klientů</div></div>
+            <div class="hero-stat"><div class="hero-stat-val">98 %</div><div class="hero-stat-label">Úspěšnost prodeje</div></div>
         </div>
     </section>
 
-    <!-- ═══ STATS STRIP ═══ -->
-    <div class="stats-strip">
+    <!-- ═══ CATEGORIES ═══ -->
+    <section class="section categories-section" id="kategorie">
         <div class="container">
-            <div class="stat reveal">
-                <div class="stat-value">850+</div>
-                <div class="stat-label">Prodaných nemovitostí</div>
+            <div class="section-header section-header-row reveal">
+                <div>
+                    <div class="section-eyebrow">Kategorie</div>
+                    <h2 class="section-title">Hledejte podle <em>typu</em></h2>
+                </div>
+                <a href="#nabidky" class="btn btn-ghost">Všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
-            <div class="stat reveal">
-                <div class="stat-value">12+</div>
-                <div class="stat-label">Let zkušeností</div>
-            </div>
-            <div class="stat reveal">
-                <div class="stat-value">2 400+</div>
-                <div class="stat-label">Spokojených klientů</div>
-            </div>
-            <div class="stat reveal">
-                <div class="stat-value">98 %</div>
-                <div class="stat-label">Úspěšnost prodeje</div>
+            <div class="cat-grid">
+                <a class="cat-card featured reveal" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Domy/IMG-20250330-WA0008.jpg" alt="Domy" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Domy</div>
+                        <div class="cat-card-count">8 nabídek</div>
+                    </div>
+                </a>
+                <a class="cat-card reveal reveal-delay-1" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Byty/IMG-20250330-WA0011.jpg" alt="Byty" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Byty</div>
+                        <div class="cat-card-count">6 nabídek</div>
+                    </div>
+                </a>
+                <a class="cat-card reveal reveal-delay-2" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Pozemky/IMG-20250330-WA0013.jpg" alt="Pozemky" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Pozemky</div>
+                        <div class="cat-card-count">5 nabídek</div>
+                    </div>
+                </a>
+                <a class="cat-card large reveal reveal-delay-1" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Komercní/IMG-20250330-WA0019.jpg" alt="Komerční" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Komerční</div>
+                        <div class="cat-card-count">3 nabídky</div>
+                    </div>
+                </a>
+                <a class="cat-card reveal reveal-delay-2" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Auta/IMG-20250330-WA0022.jpg" alt="Auta" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Auta</div>
+                        <div class="cat-card-count">1 nabídka</div>
+                    </div>
+                </a>
+                <a class="cat-card reveal reveal-delay-3" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Zahranicni/IMG-20250407-WA0003.jpg" alt="Zahraniční investice" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Zahraniční investice</div>
+                        <div class="cat-card-count">2 nabídky</div>
+                    </div>
+                </a>
+                <a class="cat-card reveal reveal-delay-3" href="#nabidky">
+                    <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Neverejne/IMG-20250330-WA0018.jpg" alt="Neveřejné nabídky" loading="lazy">
+                    <div class="cat-card-content">
+                        <div class="cat-card-name">Exkluzivní &amp; neveřejné</div>
+                        <div class="cat-card-count">Pouze pro registrované</div>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ═══ SERVICES ═══ -->
     <section class="section services-section" id="sluzby">
@@ -872,44 +910,32 @@
             <div class="section-header reveal">
                 <div class="section-eyebrow">Naše služby</div>
                 <h2 class="section-title">Čtyři pilíře pro prodej a <em>zpeněžování majetku</em></h2>
-                <p class="section-desc">Nabízíme několik forem prodeje. Každá má své výhody — společně najdeme tu nejvhodnější strategii pro váš případ.</p>
+                <p class="section-desc">Nabízíme několik forem prodeje. Společně najdeme tu nejvhodnější strategii pro váš případ.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
+            <div class="services-grid reveal">
+                <div class="service-card">
                     <div class="service-num">01</div>
                     <h3>Prodej nemovitostí</h3>
                     <p>Byty, domy, pozemky a komerční nemovitosti s individuální strategií. Kompletní servis od ocenění po předání novému vlastníkovi.</p>
-                    <a href="#" class="service-link">
-                        Více o prodeji
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <a href="#" class="service-link">Více o prodeji <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card">
                     <div class="service-num">02</div>
                     <h3>Veřejné dražby</h3>
-                    <p>Transparentní prodej formou elektronické veřejné dražby. Otevřená soutěž mezi zájemci zajistí dosažení maximální tržní ceny.</p>
-                    <a href="#" class="service-link">
-                        Více o dražbách
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <p>Transparentní elektronické dražby. Otevřená soutěž mezi zájemci zajistí dosažení maximální tržní ceny nemovitosti.</p>
+                    <a href="#" class="service-link">Více o dražbách <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card">
                     <div class="service-num">03</div>
                     <h3>Města, obce a veřejné instituce</h3>
                     <p>Prodej nemovitostí a pozemků pro samosprávy. Právní jistota, transparentní proces a dodržení legislativních požadavků.</p>
-                    <a href="#" class="service-link">
-                        Více pro obce
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <a href="#" class="service-link">Více pro obce <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card">
                     <div class="service-num">04</div>
                     <h3>Komplexní majetkové transakce</h3>
                     <p>Spoluvlastnictví, dědictví, insolvence, developerské pozemky. Složité případy s jasným vedením a výsledkem.</p>
-                    <a href="#" class="service-link">
-                        Více o transakcích
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <a href="#" class="service-link">Více o transakcích <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                 </div>
             </div>
         </div>
@@ -922,242 +948,127 @@
                 <div>
                     <div class="section-eyebrow">Aktuální nabídky</div>
                     <h2 class="section-title">Nemovitosti <em>k prodeji</em></h2>
-                    <p class="section-desc">Transparentní prodej formou dražeb, licitací a výběrových řízení.</p>
                 </div>
-                <a href="#" class="btn btn-ghost">Všechny nabídky</a>
             </div>
-
             <div class="listings-grid">
 
-                <!-- LISTING 1 — REAL -->
                 <a href="#" class="listing-card reveal">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Rodinný dům Dubá" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-vyber">Výběrové řízení</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Domy/IMG-20250330-WA0008.jpg" alt="RD Dubá" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-vyber">Výběrové řízení</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Dubá, okres Česká Lípa
-                        </div>
-                        <h3 class="listing-title">Spoluvlastnický podíl na RD v obci Dubá</h3>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Dubá, okres Česká Lípa</div>
+                        <h3 class="listing-title">Spoluvlastnický podíl na rodinném domě v obci Dubá</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                                Rodinný dům
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                                Spoluvlastnictví
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> RD</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Spoluvlastnictví</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Nejnižší podání</div>
-                                <div class="listing-price">10 000 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Odhad</strong>
-                                20 000 000 Kč
-                            </div>
+                            <div><div class="listing-price-label">Nejnižší podání</div><div class="listing-price">10 000 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Odhad ceny</strong>20 000 000 Kč</div>
                         </div>
                     </div>
                 </a>
 
-                <!-- LISTING 2 — REAL -->
-                <a href="#" class="listing-card reveal">
+                <a href="#" class="listing-card reveal reveal-delay-1">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop" alt="Pozemek Praha Zbraslav" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-drazba">Dražba</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Pozemky/IMG-20250330-WA0013.jpg" alt="Pozemek Praha" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-drazba">Dražba</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Praha, Zbraslav
-                        </div>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Praha, Zbraslav</div>
                         <h3 class="listing-title">Pozemek k bydlení 912 m², Praha-Zbraslav</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22L16 8l4 4L6 22z"/></svg>
-                                912 m²
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                                Pozemek
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22L16 8l4 4L6 22z"/></svg> 912 m²</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Pozemek</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Prodejní cena</div>
-                                <div class="listing-price">100 000 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Lokalita</strong>
-                                Praha 5
-                            </div>
+                            <div><div class="listing-price-label">Prodejní cena</div><div class="listing-price">100 000 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Lokalita</strong>Praha 5</div>
                         </div>
                     </div>
                 </a>
 
-                <!-- LISTING 3 -->
-                <a href="#" class="listing-card reveal">
+                <a href="#" class="listing-card reveal reveal-delay-2">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop" alt="Byt Brno" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-vyber">Výběrové řízení</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Byty/IMG-20250330-WA0011.jpg" alt="Byt Brno" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-vyber">Výběrové řízení</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Brno, Žabovřesky
-                        </div>
-                        <h3 class="listing-title">Byt 3+1, 78 m² v žádané lokalitě</h3>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Brno, Žabovřesky</div>
+                        <h3 class="listing-title">Byt 3+1, 78 m² v žádané lokalitě Brno-Žabovřesky</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
-                                78 m²
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-                                3+1
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg> 78 m²</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> 3+1</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Nejnižší podání</div>
-                                <div class="listing-price">5 890 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Odhad</strong>
-                                7 200 000 Kč
-                            </div>
+                            <div><div class="listing-price-label">Nejnižší podání</div><div class="listing-price">5 890 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Odhad ceny</strong>7 200 000 Kč</div>
                         </div>
                     </div>
                 </a>
 
-                <!-- LISTING 4 -->
                 <a href="#" class="listing-card reveal">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="RD Liberec" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-drazba">Dražba</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Domy/IMG-20250330-WA0007.jpg" alt="RD Liberec" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-drazba">Dražba</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Liberec
-                        </div>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Liberec</div>
                         <h3 class="listing-title">Rodinný dům 5+kk s garáží a zahradou</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                                185 m²
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-                                5+kk
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 185 m²</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> 5+kk</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Nejnižší podání</div>
-                                <div class="listing-price">8 500 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Dražba</strong>
-                                15. 10. 2026
-                            </div>
+                            <div><div class="listing-price-label">Nejnižší podání</div><div class="listing-price">8 500 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Dražba</strong>15. 10. 2026</div>
                         </div>
                     </div>
                 </a>
 
-                <!-- LISTING 5 -->
-                <a href="#" class="listing-card reveal">
+                <a href="#" class="listing-card reveal reveal-delay-1">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Komerční Praha" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-licitace">Licitace</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Komercní/IMG-20250330-WA0019.jpg" alt="Komerční Praha" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-licitace">Licitace</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Praha 5, Smíchov
-                        </div>
-                        <h3 class="listing-title">Komerční prostory 320 m² v centru Prahy</h3>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Praha 5, Smíchov</div>
+                        <h3 class="listing-title">Komerční prostory 320 m² v centru Prahy 5</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
-                                320 m²
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-                                Komerční
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg> 320 m²</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> Komerční</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Vyvolávací cena</div>
-                                <div class="listing-price">18 750 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Odhad</strong>
-                                25 000 000 Kč
-                            </div>
+                            <div><div class="listing-price-label">Vyvolávací cena</div><div class="listing-price">18 750 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Odhad ceny</strong>25 000 000 Kč</div>
                         </div>
                     </div>
                 </a>
 
-                <!-- LISTING 6 -->
-                <a href="#" class="listing-card reveal">
+                <a href="#" class="listing-card reveal reveal-delay-2">
                     <div class="listing-img">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Vila Č. Budějovice" loading="lazy">
-                        <div class="listing-badges">
-                            <span class="badge badge-exkluzivni">Exkluzivní</span>
-                        </div>
+                        <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Zahranicni/IMG-20250407-WA0003.jpg" alt="Vila zahraniční" loading="lazy">
+                        <div class="listing-badges"><span class="badge badge-exkluzivni">Exkluzivní</span></div>
                     </div>
                     <div class="listing-body">
-                        <div class="listing-location">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            České Budějovice
-                        </div>
-                        <h3 class="listing-title">Reprezentativní vila s pozemkem 1 200 m²</h3>
+                        <div class="listing-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Zahraniční investice</div>
+                        <h3 class="listing-title">Reprezentativní vila s bazénem, zahraniční investice</h3>
                         <div class="listing-specs">
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                                240 m²
-                            </span>
-                            <span class="listing-spec">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22L16 8l4 4L6 22z"/></svg>
-                                1 200 m²
-                            </span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 280 m²</span>
+                            <span class="listing-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22L16 8l4 4L6 22z"/></svg> 1 500 m²</span>
                         </div>
                         <div class="listing-bottom">
-                            <div>
-                                <div class="listing-price-label">Prodejní cena</div>
-                                <div class="listing-price">14 900 000 Kč</div>
-                            </div>
-                            <div class="listing-detail">
-                                <strong>Odhad</strong>
-                                17 500 000 Kč
-                            </div>
+                            <div><div class="listing-price-label">Prodejní cena</div><div class="listing-price">14 900 000 Kč</div></div>
+                            <div class="listing-detail"><strong>Odhad ceny</strong>17 500 000 Kč</div>
                         </div>
                     </div>
                 </a>
 
             </div>
-
             <div class="listings-more reveal">
-                <a href="#" class="btn btn-filled">
-                    Zobrazit všechny nabídky
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                <a href="#" class="btn btn-filled">Zobrazit všechny nabídky <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
         </div>
     </section>
@@ -1168,40 +1079,31 @@
             <div class="section-header reveal">
                 <div class="section-eyebrow">Jak to funguje</div>
                 <h2 class="section-title">Od registrace k <em>úspěšnému nákupu</em></h2>
-                <p class="section-desc">Jednoduchý a přehledný proces pro všechny účastníky.</p>
             </div>
-            <div class="process-grid">
-                <div class="process-step reveal">
+            <div class="process-grid reveal">
+                <div class="process-step">
                     <div class="process-step-num">Krok 01</div>
-                    <div class="process-step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
+                    <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
                     <h4>Registrace</h4>
                     <p>Vytvořte si účet zdarma. Stačí základní údaje a můžete začít sledovat nabídky.</p>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step">
                     <div class="process-step-num">Krok 02</div>
-                    <div class="process-step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    </div>
+                    <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
                     <h4>Výběr nemovitosti</h4>
-                    <p>Prohlédněte si nabídky. Filtrujte podle lokality, typu a ceny. Nastavte si hlídacího psa.</p>
+                    <p>Prohlédněte si nabídky, filtrujte podle lokality a ceny. Nastavte si hlídacího psa.</p>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step">
                     <div class="process-step-num">Krok 03</div>
-                    <div class="process-step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-                    </div>
+                    <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
                     <h4>Podání nabídky</h4>
                     <p>Zapojte se do dražby nebo licitace online. Přihazujte z pohodlí domova v reálném čase.</p>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step">
                     <div class="process-step-num">Krok 04</div>
-                    <div class="process-step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    </div>
+                    <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                     <h4>Převod vlastnictví</h4>
-                    <p>Zajistíme kompletní právní servis, přípravu smluv a hladký převod nemovitosti.</p>
+                    <p>Zajistíme právní servis, přípravu smluv a hladký převod nemovitosti.</p>
                 </div>
             </div>
         </div>
@@ -1211,46 +1113,29 @@
     <section class="section values-section">
         <div class="container">
             <div class="section-header reveal" style="text-align: center;">
-                <div class="section-eyebrow" style="display: block;">Naše hodnoty</div>
-                <h2 class="section-title">Proč <em>e-dražby</em></h2>
-                <p class="section-desc" style="margin: 0 auto;">Stavíme na transparentnosti, profesionalitě a výsledcích.</p>
+                <div class="section-eyebrow" style="justify-content: center;">Proč e-dražby</div>
+                <h2 class="section-title">Naše <em>hodnoty</em></h2>
             </div>
-            <div class="values-grid">
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                    </div>
-                    <div>
-                        <h4>Transparentnost</h4>
-                        <p>Otevřená komunikace v každém kroku. Všechny informace veřejně dostupné a ověřitelné.</p>
-                    </div>
+            <div class="values-grid reveal">
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+                    <h4>Transparentnost</h4>
+                    <p>Otevřená komunikace. Všechny informace veřejně dostupné a ověřitelné.</p>
                 </div>
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <div>
-                        <h4>Odpovědnost</h4>
-                        <p>Neseme odpovědnost za celý proces. Právní jistota pro prodávající i kupující.</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h4>Odpovědnost</h4>
+                    <p>Neseme odpovědnost za celý proces. Právní jistota pro všechny strany.</p>
                 </div>
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-                    </div>
-                    <div>
-                        <h4>Výsledky</h4>
-                        <p>Dosahujeme cen často převyšujících tržní odhad. 98% úspěšnost prodejních procesů.</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+                    <h4>Výsledky</h4>
+                    <p>Ceny často převyšující tržní odhad. 98% úspěšnost prodejních procesů.</p>
                 </div>
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <div>
-                        <h4>Strategie</h4>
-                        <p>Individuální přístup ke každému případu. Analýza trhu a volba nejvhodnější formy prodeje.</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h4>Strategie</h4>
+                    <p>Individuální přístup. Analýza trhu a volba nejvhodnější formy prodeje.</p>
                 </div>
             </div>
         </div>
@@ -1258,18 +1143,18 @@
 
     <!-- ═══ CTA BAND ═══ -->
     <section class="cta-band">
+        <div class="cta-band-bg">
+            <img src="https://www.e-drazby.cz/plugins_custom/_plugins/00070_skin_edrazby/data/style/thumbs/Neverejne/IMG-20250330-WA0018.jpg" alt="" loading="lazy">
+        </div>
         <div class="container">
-            <div class="cta-band-inner">
+            <div class="cta-band-inner reveal">
                 <div>
                     <h2>Chcete prodat <em>nemovitost?</em></h2>
                     <p>Rádi vám poradíme s výběrem nejvhodnější formy prodeje. Konzultace je zdarma a nezávazná.</p>
                 </div>
                 <div class="cta-band-actions">
-                    <a href="#kontakt" class="btn btn-rust">
-                        Nezávazná konzultace
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="tel:+420000000000" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.15); color: var(--paper-white);">Zavolat nám</a>
+                    <a href="#kontakt" class="btn btn-rust">Nezávazná konzultace <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="tel:+420605203516" class="btn btn-ghost-light">Zavolat nám</a>
                 </div>
             </div>
         </div>
@@ -1288,89 +1173,41 @@
                     <p>Jsme tým odborníků v oblasti prodeje a dražeb nemovitostí. Nabízíme kompletní servis od ocenění po převod vlastnictví.</p>
                     <div class="contact-items">
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-item-label">Adresa</div>
-                                <div class="contact-item-value">Nerudova 956/24<br>500 02 Hradec Králové</div>
-                            </div>
+                            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <div><div class="contact-item-label">Adresa</div><div class="contact-item-value">Nerudova 956/24, 500 02 Hradec Králové</div></div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-item-label">Email</div>
-                                <div class="contact-item-value">info@e-drazby.cz</div>
-                            </div>
+                            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                            <div><div class="contact-item-label">Email</div><div class="contact-item-value">info@e-drazby.cz</div></div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-item-label">Telefon</div>
-                                <div class="contact-item-value">+420 605 203 516</div>
-                            </div>
+                            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+                            <div><div class="contact-item-label">Telefon</div><div class="contact-item-value">+420 605 203 516</div></div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v3"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-item-label">IČ</div>
-                                <div class="contact-item-value">26014688</div>
-                            </div>
+                            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v3"/></svg></div>
+                            <div><div class="contact-item-label">IČ</div><div class="contact-item-value">26014688</div></div>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-wrap reveal">
                     <form>
                         <div class="form-row">
-                            <div class="form-group">
-                                <label>Jméno *</label>
-                                <input type="text" placeholder="Vaše jméno" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Příjmení *</label>
-                                <input type="text" placeholder="Vaše příjmení" required>
-                            </div>
+                            <div class="form-group"><label>Jméno *</label><input type="text" placeholder="Vaše jméno" required></div>
+                            <div class="form-group"><label>Příjmení *</label><input type="text" placeholder="Vaše příjmení" required></div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group">
-                                <label>Email *</label>
-                                <input type="email" placeholder="vas@email.cz" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input type="tel" placeholder="+420">
-                            </div>
+                            <div class="form-group"><label>Email *</label><input type="email" placeholder="vas@email.cz" required></div>
+                            <div class="form-group"><label>Telefon</label><input type="tel" placeholder="+420"></div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group full">
-                                <label>Zájem o</label>
-                                <select>
-                                    <option value="">Vyberte typ služby</option>
-                                    <option>Veřejná dražba</option>
-                                    <option>Licitace</option>
-                                    <option>Výběrové řízení</option>
-                                    <option>Přímý prodej</option>
-                                    <option>Obecná konzultace</option>
-                                </select>
-                            </div>
+                            <div class="form-group full"><label>Zájem o</label><select><option value="">Vyberte typ služby</option><option>Veřejná dražba</option><option>Licitace</option><option>Výběrové řízení</option><option>Přímý prodej</option><option>Obecná konzultace</option></select></div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group full">
-                                <label>Zpráva</label>
-                                <textarea placeholder="Popište vaši situaci nebo dotaz..."></textarea>
-                            </div>
+                            <div class="form-group full"><label>Zpráva</label><textarea placeholder="Popište vaši situaci nebo dotaz..."></textarea></div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-filled">
-                                Odeslat
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                            </button>
+                            <button type="submit" class="btn btn-filled">Odeslat <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
                         </div>
                     </form>
                 </div>
@@ -1383,13 +1220,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">e-dražby<span>.cz</span></a>
+                    <div class="logo-text">e-dražby<span>.cz</span></div>
                     <p>Specialista na prodej nemovitostí formou dražeb, licitací a výběrových řízení. Transparentně a za nejlepší cenu.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigace</h4>
                     <ul>
-                        <li><a href="#nabidky">Nabídky</a></li>
+                        <li><a href="#kategorie">Nabídky</a></li>
                         <li><a href="#sluzby">Služby</a></li>
                         <li><a href="#proces">Jak to funguje</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
@@ -1412,6 +1249,7 @@
                         <li><a href="#">Přihlášení</a></li>
                         <li><a href="#">Hlídací pes</a></li>
                         <li><a href="#">Archiv dražeb</a></li>
+                        <li><a href="#">Kariéra</a></li>
                     </ul>
                 </div>
             </div>
@@ -1427,20 +1265,14 @@
     </footer>
 
     <script>
-        // Header scroll
         const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 40);
-        });
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
 
-        // Mobile nav
         const toggle = document.getElementById('navToggle');
         const links = document.getElementById('navLinks');
         toggle.addEventListener('click', () => links.classList.toggle('open'));
         links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-        // Reveal on scroll
-        const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1448,22 +1280,16 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        reveals.forEach(el => observer.observe(el));
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href === '#') return;
                 e.preventDefault();
                 const target = document.querySelector(href);
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                if (target) window.scrollTo({ top: target.offsetTop - 76, behavior: 'smooth' });
             });
         });
     </script>
