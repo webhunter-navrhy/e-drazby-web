@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodat nemovitost — e-dražby.cz</title>
+    <meta name="description" content="Prodejte nemovitost rychle, transparentně a za nejlepší cenu. Dražba hotová do 30 dnů, bez provize, bez výhradní smlouvy. Bezplatná konzultace.">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar"><div class="container topbar-inner">
+    <div class="topbar-left">
+        <div class="topbar-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+420603866579">+420 603 866 579</a></div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@e-drazby.cz">info@e-drazby.cz</a></div>
+    </div>
+    <div class="topbar-right">
+        <div class="topbar-langs"><span class="topbar-lang active">CZ</span><span class="topbar-lang">EN</span><span class="topbar-lang">DE</span></div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-auth">
+            <a href="registrace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Přihlášení</a>
+            <a href="registrace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg> Registrace</a>
+        </div>
+    </div>
+</div></div>
+
+<header class="header" id="header"><div class="container header-inner">
+    <a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a>
+    <nav class="nav">
+        <ul class="nav-links"><li><a href="index.html#kategorie">Nabídky</a></li><li><a href="index.html#sluzby">Služby</a></li><li><a href="jak-to-funguje.html">Jak to funguje</a></li><li><a href="archiv.html">Archiv</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+        <a href="prodat-nemovitost.html" class="btn btn-filled btn-sm nav-cta active" style="background:var(--rust); color:#fff;">Prodat nemovitost</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+</div></header>
+
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-top"><a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a><button class="mobile-nav-close" id="mobileNavClose" aria-label="Zavřít"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html#kategorie">Nabídky</a><a href="index.html#sluzby">Služby</a><a href="jak-to-funguje.html">Jak to funguje</a><a href="archiv.html">Archiv</a><a href="kontakt.html">Kontakt</a><a href="cenik.html">Ceník</a></div>
+    <div class="mobile-nav-bottom"><a href="prodat-nemovitost.html" class="btn btn-rust">Prodat nemovitost</a><a href="registrace.html" class="btn btn-ghost">Přihlášení</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="section-eyebrow">Prodej nemovitosti</div>
+        <h1>Chcete prodat <em>nemovitost?</em></h1>
+        <p>Rychle, transparentně a za nejlepší cenu. Konzultace je zdarma — ozvěte se nám ještě dnes.</p>
+    </div>
+</section>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <a href="index.html">Úvod</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="breadcrumbs-current">Prodat nemovitost</span>
+        </div>
+    </div>
+</div>
+
+<!-- KEY SELLING POINTS -->
+<section class="section" style="background: var(--paper-soft);">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Naše výhody</div>
+            <h2 class="section-title">Proč prodávat <em>přes e-dražby.cz</em></h2>
+            <p class="section-desc">Kombinujeme osvědčené metody prodeje s moderními technologiemi — pro maximální výsledek.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px;" class="reveal">
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h4>Bez provize</h4>
+                <p>Žádné skryté poplatky ani provize za zprostředkování. Víte přesně, co zaplatíte — předem.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h4>Bez výhradní smlouvy</h4>
+                <p>Nesouhlasíte s podmínkami nebo prodej odložíte? Žádný problém — žádná výhradní smlouva vás neomezuje.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h4>Dražba do 30 dnů</h4>
+                <p>Celý prodej od konzultace po dražbu zvládneme za méně než 30 dní. Rychlost, na kterou se můžete spolehnout.</p>
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;" class="reveal">
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                </div>
+                <h4>Jen jedna prohlídka</h4>
+                <p>Organizujeme jedinou hromadnou prohlídku pro všechny zájemce. Bez opakovaných návštěv cizích lidí v domácnosti.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h4>Transparentní jednání</h4>
+                <p>Otevřené přihazování, veřejná historie, jasná pravidla. Žádné zákulisní dohody ani manipulace s cenou.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h4>Maximální cena</h4>
+                <p>Soutěž více zájemců přirozeně tlačí cenu nahoru. Průměrně prodáváme o 12 % nad odhadní hodnotou.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW SELLING WORKS -->
+<section class="section" style="background: var(--paper);">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Průběh prodeje</div>
+            <h2 class="section-title">Jak prodej <em>probíhá</em></h2>
+            <p class="section-desc">Čtyři kroky od prvního kontaktu po předání klíčů novému majiteli.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; background:var(--line); border-radius:var(--radius); overflow:hidden;" class="reveal">
+
+            <div style="background:var(--paper-white); padding:36px 28px; position:relative; transition:background 0.3s;">
+                <div style="font-family:var(--font-display); font-size:11px; font-weight:700; color:var(--rust); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Krok 01</div>
+                <div style="width:52px; height:52px; border-radius:13px; background:rgba(180,91,62,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--rust)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <h4 style="font-family:var(--font-display); font-size:17px; font-weight:700; margin-bottom:10px;">Kontaktujte nás</h4>
+                <p style="font-size:13px; color:var(--muted); line-height:1.7;">Bezplatná konzultace a ocenění nemovitosti. Bez závazků — pouze upřímný rozhovor o vaší situaci a možnostech.</p>
+            </div>
+
+            <div style="background:var(--paper-white); padding:36px 28px; border-left:1px solid var(--line-light);">
+                <div style="font-family:var(--font-display); font-size:11px; font-weight:700; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Krok 02</div>
+                <div style="width:52px; height:52px; border-radius:13px; background:rgba(23,75,81,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                </div>
+                <h4 style="font-family:var(--font-display); font-size:17px; font-weight:700; margin-bottom:10px;">Příprava</h4>
+                <p style="font-size:13px; color:var(--muted); line-height:1.7;">Fotodokumentace, právní prověrka a znalecký posudek — vše zajistíme sami. Vy pouze předáte podklady a klíče.</p>
+            </div>
+
+            <div style="background:var(--paper-white); padding:36px 28px; border-left:1px solid var(--line-light);">
+                <div style="font-family:var(--font-display); font-size:11px; font-weight:700; color:var(--coral); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Krok 03</div>
+                <div style="width:52px; height:52px; border-radius:13px; background:rgba(239,100,60,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <h4 style="font-family:var(--font-display); font-size:17px; font-weight:700; margin-bottom:10px;">Realizace</h4>
+                <p style="font-size:13px; color:var(--muted); line-height:1.7;">Marketing, prohlídka, dražba nebo licitace nebo výběrové řízení. Aktivně oslovujeme registrované zájemce z naší databáze.</p>
+            </div>
+
+            <div style="background:var(--paper-white); padding:36px 28px; border-left:1px solid var(--line-light);">
+                <div style="font-family:var(--font-display); font-size:11px; font-weight:700; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Krok 04</div>
+                <div style="width:52px; height:52px; border-radius:13px; background:rgba(16,24,32,0.06); display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h4 style="font-family:var(--font-display); font-size:17px; font-weight:700; margin-bottom:10px;">Dokončení</h4>
+                <p style="font-size:13px; color:var(--muted); line-height:1.7;">Kupní smlouva, převod peněz na depozitní účet, předání nemovitosti a zápis nového vlastníka do katastru.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+    <div class="cta-band-bg">
+        <img src="img/neverejne.jpg" alt="" loading="lazy">
+    </div>
+    <div class="container">
+        <div class="cta-band-inner reveal">
+            <div>
+                <h2>Dosáhněte <em>maximální ceny</em></h2>
+                <p>Průměrně prodáváme o 12 % nad odhadní hodnotou. Konzultace je zdarma a nezávazná. Zavolejte nám.</p>
+            </div>
+            <div class="cta-band-actions">
+                <a href="tel:+420603866579" class="btn btn-rust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6"/></svg> +420 603 866 579</a>
+                <a href="#konzultace" class="btn btn-ghost-light">Napište nám</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION WITH FORM -->
+<section class="section" id="konzultace" style="background: var(--paper-soft);">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Kontakt</div>
+            <h2 class="section-title">Nezávazná <em>konzultace</em></h2>
+            <p class="section-desc">Pošlete nám zprávu nebo zavolejte. Ozveme se vám do 24 hodin v pracovní dny.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(40px,6vw,72px); align-items:start;">
+
+            <!-- LEFT: Benefits + contact -->
+            <div class="reveal">
+                <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; margin-bottom:16px;">Co získáte konzultací?</h3>
+                <ul class="sell-benefits" style="margin-bottom:32px;">
+                    <li>Bezplatné posouzení nemovitosti a odhad prodejní ceny</li>
+                    <li>Doporučení nejvhodnější formy prodeje</li>
+                    <li>Informace o časovém průběhu a procesu</li>
+                    <li>Odpovědi na všechny vaše dotazy</li>
+                    <li>Bez jakýchkoliv závazků z vaší strany</li>
+                </ul>
+
+                <div style="display:flex; flex-direction:column; gap:16px;">
+                    <a href="tel:+420603866579" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
+                        <div style="width:48px; height:48px; border-radius:12px; background:rgba(180,91,62,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--rust)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; font-weight:600; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Telefon</div>
+                            <div style="font-size:17px; font-weight:700; color:var(--ink); font-family:var(--font-display);">+420 603 866 579</div>
+                        </div>
+                    </a>
+                    <a href="mailto:info@e-drazby.cz" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
+                        <div style="width:48px; height:48px; border-radius:12px; background:rgba(23,75,81,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; font-weight:600; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">E-mail</div>
+                            <div style="font-size:17px; font-weight:700; color:var(--ink); font-family:var(--font-display);">info@e-drazby.cz</div>
+                        </div>
+                    </a>
+                    <div style="display:flex; align-items:center; gap:14px;">
+                        <div style="width:48px; height:48px; border-radius:12px; background:rgba(16,24,32,0.06); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; font-weight:600; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:2px;">Adresa</div>
+                            <div style="font-size:14px; color:var(--ink); line-height:1.5;">Nerudova 956/24<br>500 02 Hradec Králové</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notice-box" style="margin-top:28px;">
+                    <p>Působíme po celé České republice. Vzdálenost není překážkou — vše zařídíme i na dálku.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT: Quick contact form -->
+            <div class="reveal reveal-d1">
+                <div class="contact-form-wrap">
+                    <h3 class="contact-form-title">Chci nezávaznou konzultaci</h3>
+                    <p class="contact-form-sub">Zanechte nám kontakt a ozveme se do 24 hodin v pracovní dny.</p>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Jméno *</label>
+                                <input type="text" placeholder="Vaše jméno" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Příjmení *</label>
+                                <input type="text" placeholder="Vaše příjmení" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Telefon *</label>
+                                <input type="tel" placeholder="+420 xxx xxx xxx" required>
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail *</label>
+                                <input type="email" placeholder="vas@email.cz" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label>Typ nemovitosti</label>
+                                <select>
+                                    <option value="">Vyberte typ nemovitosti</option>
+                                    <option>Rodinný dům</option>
+                                    <option>Byt</option>
+                                    <option>Pozemek</option>
+                                    <option>Komerční nemovitost</option>
+                                    <option>Průmyslový objekt</option>
+                                    <option>Zemědělský objekt</option>
+                                    <option>Jiné</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label>Zpráva</label>
+                                <textarea placeholder="Popište nemovitost, lokalitu, odhadovanou cenu nebo jakýkoliv dotaz..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-rust" style="width:100%; justify-content:center;">
+                                Chci nezávaznou konzultaci
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                        <p style="font-size:11px; color:var(--muted-light); text-align:center; margin-top:12px; line-height:1.6;">Odesláním souhlasíte se zpracováním osobních údajů za účelem odpovědi na váš dotaz. Data nepředáváme třetím stranám.</p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="trust-strip">
+    <div class="container">
+        <div class="trust-inner">
+            <div class="trust-main">Více než <em>850 úspěšně prodaných nemovitostí</em> od roku 2013</div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    Průměrně +12 % nad odhadem
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    98 % úspěšnost prodeje
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                    Dražba do 30 dnů
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer"><div class="container">
+    <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a><p>Specialista na prodej nemovitostí formou dražeb, licitací a výběrových řízení od roku 2013.</p></div>
+        <div class="footer-col"><h4>Navigace</h4><ul><li><a href="index.html#kategorie">Nabídky</a></li><li><a href="jak-to-funguje.html">Jak to funguje</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="cenik.html">Ceník</a></li></ul></div>
+        <div class="footer-col"><h4>Služby</h4><ul><li><a href="online-drazby.html">Dražby</a></li><li><a href="prodat-nemovitost.html">Prodej</a></li><li><a href="formulare.html">Formuláře</a></li></ul></div>
+        <div class="footer-col"><h4>Pro klienty</h4><ul><li><a href="registrace.html">Registrace</a></li><li><a href="hlidaci-pes.html">Hlídací pes</a></li><li><a href="archiv.html">Archiv</a></li><li><a href="testovaci-aukce.html">Testovací aukce</a></li></ul></div>
+        <div class="footer-col"><h4>Právní</h4><ul><li><a href="podminky.html">Podmínky</a></li><li><a href="zasady-cookies.html">Cookies</a></li><li><a href="kariera.html">Kariéra</a></li><li><a href="technicka-podpora.html">Podpora</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2013&ndash;2026 e-dražby.cz s.r.o. IČ: 26014688</p><div class="footer-legal"><a href="podminky.html">Podmínky</a><a href="zasady-cookies.html">Cookies</a><span style="opacity:0.5">|</span><span style="opacity:0.6">SOFFITECH s.r.o.</span></div></div>
+</div></footer>
+
+<div class="cookies-banner" id="cookiesBanner"><div class="container"><div class="cookies-inner"><p class="cookies-text">Tento web využívá cookies potřebné pro fungování stránek.</p><button class="btn btn-filled cookies-btn" id="cookiesAccept">Souhlasím</button></div></div></div>
+
+<script>
+const header=document.getElementById('header');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>30)},{passive:true});
+const navToggle=document.getElementById('navToggle'),mobileNav=document.getElementById('mobileNav'),mobileNavClose=document.getElementById('mobileNavClose');
+navToggle.addEventListener('click',()=>{mobileNav.classList.add('open');document.body.style.overflow='hidden'});
+mobileNavClose.addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow=''});
+mobileNav.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow=''})});
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');ro.unobserve(en.target)}})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>{ro.observe(el)});
+const cb=document.getElementById('cookiesBanner'),ca=document.getElementById('cookiesAccept');
+if(localStorage.getItem('edrazby_cookies_accepted')==='true')cb.classList.add('hidden');
+ca.addEventListener('click',()=>{localStorage.setItem('edrazby_cookies_accepted','true');cb.classList.add('hidden')});
+</script>
+</body>
+</html>

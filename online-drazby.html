@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online dražby — e-dražby.cz</title>
+    <meta name="description" content="Veřejné dražby, licitace a výběrová řízení nemovitostí online. Transparentní elektronický prodej v reálném čase. Zjistěte, jaký typ prodeje je pro vás nejvhodnější.">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar"><div class="container topbar-inner">
+    <div class="topbar-left">
+        <div class="topbar-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+420603866579">+420 603 866 579</a></div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@e-drazby.cz">info@e-drazby.cz</a></div>
+    </div>
+    <div class="topbar-right">
+        <div class="topbar-langs"><span class="topbar-lang active">CZ</span><span class="topbar-lang">EN</span><span class="topbar-lang">DE</span></div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-auth">
+            <a href="registrace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Přihlášení</a>
+            <a href="registrace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg> Registrace</a>
+        </div>
+    </div>
+</div></div>
+
+<header class="header" id="header"><div class="container header-inner">
+    <a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a>
+    <nav class="nav">
+        <ul class="nav-links"><li><a href="index.html#kategorie">Nabídky</a></li><li><a href="index.html#sluzby" class="active">Služby</a></li><li><a href="jak-to-funguje.html">Jak to funguje</a></li><li><a href="archiv.html">Archiv</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+        <a href="prodat-nemovitost.html" class="btn btn-filled btn-sm nav-cta">Prodat nemovitost</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+</div></header>
+
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-top"><a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a><button class="mobile-nav-close" id="mobileNavClose" aria-label="Zavřít"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html#kategorie">Nabídky</a><a href="index.html#sluzby">Služby</a><a href="jak-to-funguje.html">Jak to funguje</a><a href="archiv.html">Archiv</a><a href="kontakt.html">Kontakt</a><a href="cenik.html">Ceník</a></div>
+    <div class="mobile-nav-bottom"><a href="prodat-nemovitost.html" class="btn btn-rust">Prodat nemovitost</a><a href="registrace.html" class="btn btn-ghost">Přihlášení</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="section-eyebrow">Naše služby</div>
+        <h1>Online dražby, licitace<br>a <em>výběrová řízení</em></h1>
+        <p>Transparentní elektronický prodej nemovitostí v reálném čase. Tři formy prodeje — jedna platforma.</p>
+    </div>
+</section>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <a href="index.html">Úvod</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="breadcrumbs-current">Online dražby</span>
+        </div>
+    </div>
+</div>
+
+<!-- THREE SERVICE TYPES -->
+<section class="section" style="background: var(--paper-soft);">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Formy prodeje</div>
+            <h2 class="section-title">Vyberte správnou <em>formu prodeje</em></h2>
+            <p class="section-desc">Každá situace je jiná. Nabízíme tři prověřené modely — společně zvolíme ten nejvhodnější pro váš majetek.</p>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+            <!-- Veřejné dražby -->
+            <div class="info-card reveal" style="padding: clamp(28px,3vw,44px);">
+                <div style="display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:flex-start;">
+                    <div>
+                        <div style="width:64px; height:64px; border-radius:16px; background:rgba(180,91,62,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:12px;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--rust)" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        </div>
+                        <span class="badge badge-drazba" style="white-space:nowrap;">Dražba</span>
+                    </div>
+                    <div>
+                        <div style="font-size:11px; font-weight:700; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">§ 1770 OZ</div>
+                        <h3 style="font-family:var(--font-display); font-size:clamp(20px,2.4vw,26px); font-weight:800; color:var(--ink); margin-bottom:14px; letter-spacing:-0.02em;">Veřejné dražby</h3>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:16px;">Veřejná dražba je nejvíce regulovanou a nejprůhlednější formou prodeje. Probíhá dle zákona č. 26/2000 Sb. o veřejných dražbách, resp. § 1770 OZ, s otevřeným přihazováním v reálném čase.</p>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:20px;">Ideální pro dosažení maximální tržní ceny — soutěž více zájemců přirozeně tlačí cenu nahoru. Celý průběh je pod dohledem certifikovaného dražebníka, transparentní pro všechny strany.</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--rust); font-weight:600; background:rgba(180,91,62,0.08); padding:7px 14px; border-radius:99px;">Otevřené přihazování</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--rust); font-weight:600; background:rgba(180,91,62,0.08); padding:7px 14px; border-radius:99px;">Online v reálném čase</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--rust); font-weight:600; background:rgba(180,91,62,0.08); padding:7px 14px; border-radius:99px;">Maximální cena</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--rust); font-weight:600; background:rgba(180,91,62,0.08); padding:7px 14px; border-radius:99px;">Dohled dražebníka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Licitace -->
+            <div class="info-card reveal" style="padding: clamp(28px,3vw,44px);">
+                <div style="display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:flex-start;">
+                    <div>
+                        <div style="width:64px; height:64px; border-radius:16px; background:rgba(23,75,81,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:12px;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <span class="badge badge-licitace" style="white-space:nowrap;">Licitace</span>
+                    </div>
+                    <div>
+                        <div style="font-size:11px; font-weight:700; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Rychlý a flexibilní prodej</div>
+                        <h3 style="font-family:var(--font-display); font-size:clamp(20px,2.4vw,26px); font-weight:800; color:var(--ink); margin-bottom:14px; letter-spacing:-0.02em;">Licitace</h3>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:16px;">Licitace je moderní aukční forma, která umožňuje uzavření kupní smlouvy s nejvyšší nabídkou. Je rychlejší a flexibilnější než klasická veřejná dražba — administrativně méně náročná, výsledkově srovnatelná.</p>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:20px;">Vhodná pro prodej nemovitého i movitého majetku. Oblíbená u soukromých prodejců i malých podniků, kteří chtějí rychlý a transparentní výsledek bez zbytečné byrokracie.</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--teal); font-weight:600; background:rgba(23,75,81,0.08); padding:7px 14px; border-radius:99px;">Rychlejší realizace</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--teal); font-weight:600; background:rgba(23,75,81,0.08); padding:7px 14px; border-radius:99px;">Nižší administrativa</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--teal); font-weight:600; background:rgba(23,75,81,0.08); padding:7px 14px; border-radius:99px;">Movitý i nemovitý majetek</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Výběrová řízení -->
+            <div class="info-card reveal" style="padding: clamp(28px,3vw,44px);">
+                <div style="display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:flex-start;">
+                    <div>
+                        <div style="width:64px; height:64px; border-radius:16px; background:rgba(16,24,32,0.07); display:flex; align-items:center; justify-content:center; margin-bottom:12px;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                        </div>
+                        <span class="badge badge-vyber" style="white-space:nowrap;">Výběrové řízení</span>
+                    </div>
+                    <div>
+                        <div style="font-size:11px; font-weight:700; color:var(--muted-light); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Strukturovaný výběr kupce</div>
+                        <h3 style="font-family:var(--font-display); font-size:clamp(20px,2.4vw,26px); font-weight:800; color:var(--ink); margin-bottom:14px; letter-spacing:-0.02em;">Výběrová řízení</h3>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:16px;">Strukturovaný výběr kupce na základě předem stanovených kritérií. Nerozhoduje pouze nabídnutá cena — hodnotí se rovněž zkušenosti, reference, záměry s nemovitostí a bonita zájemce.</p>
+                        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:20px;">Vhodné zejména pro obce, instituce, státní subjekty a složité majetkové transakce, kde je důležité nejen kolik kupující nabídne, ale i kdo je a co s nemovitostí plánuje.</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--ink); font-weight:600; background:rgba(16,24,32,0.06); padding:7px 14px; border-radius:99px;">Vícekriterální hodnocení</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--ink); font-weight:600; background:rgba(16,24,32,0.06); padding:7px 14px; border-radius:99px;">Obce a instituce</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--ink); font-weight:600; background:rgba(16,24,32,0.06); padding:7px 14px; border-radius:99px;">Transparentní výběr</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--ink); font-weight:600; background:rgba(16,24,32,0.06); padding:7px 14px; border-radius:99px;">Složité transakce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section" style="background: var(--navy);">
+    <div class="container">
+        <div class="section-header reveal" style="margin-bottom: 44px;">
+            <div class="section-eyebrow" style="color:var(--rust-light);">Proč e-dražby.cz</div>
+            <h2 class="section-title section-title--light">Výhody <em>online prodeje</em></h2>
+            <p class="section-desc section-desc--light">Elektronický prodej přináší výhody pro prodávající i kupující zároveň.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;" class="reveal">
+            <div class="feature-card">
+                <div class="feature-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h4>Bezpečnost</h4>
+                <p>SSL šifrování veškerých dat. Ověřená identita každého účastníka před vstupem do dražby.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+                <h4>Transparentnost</h4>
+                <p>Veřejná a auditovatelná historie všech příhozů. Každý vidí vše — žádné zákulisní dohody.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+                <h4>Pohodlí</h4>
+                <p>Z domova, z telefonu, kdekoli na světě. Přihazujte z jakéhokoli zařízení s internetem.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h4>Férovost</h4>
+                <p>Rovné podmínky pro všechny účastníky. Každý má stejnou šanci bez ohledu na to, kde se nachází.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS SUMMARY -->
+<section class="section" style="background: var(--cream-band);">
+    <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,80px); align-items:center;">
+            <div class="reveal">
+                <div class="section-eyebrow">Jak to probíhá</div>
+                <h2 class="section-title">Celý proces <em>krok za krokem</em></h2>
+                <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:24px;">Od registrace po převod vlastnictví — vše zvládnete online. Detailní průvodce procesem najdete na stránce Jak to funguje.</p>
+                <div class="steps-list" style="margin-bottom:28px;">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Registrace zdarma</h4>
+                            <p>Vytvořte si účet za pár minut — zdarma, bezpečně, bez závazků.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Výběr a příprava</h4>
+                            <p>Prohlédněte si nabídky, dokumenty a posudky. Složte dražební jistotu.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Vydražení a převod</h4>
+                            <p>Přihazujte online, sledujte průběh v reálném čase. Po vítězství zajistíme celý právní servis.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="jak-to-funguje.html" class="btn btn-filled">Detailní průvodce procesem <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+            <div class="reveal reveal-d1">
+                <div style="border-radius:var(--radius); overflow:hidden; height:380px; position:relative;">
+                    <img src="img/domy1.jpg" alt="Online dražby" style="width:100%; height:100%; object-fit:cover;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(13,26,36,0.7) 0%, transparent 60%);"></div>
+                    <div style="position:absolute; bottom:28px; left:28px; right:28px;">
+                        <div style="font-family:var(--font-display); font-size:18px; font-weight:700; color:#fff; margin-bottom:8px;">850+ prodaných nemovitostí</div>
+                        <div style="font-size:13px; color:rgba(255,255,255,0.6);">od roku 2013, 98 % úspěšnost prodeje</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+    <div class="cta-band-bg">
+        <img src="img/komercni.jpg" alt="" loading="lazy">
+    </div>
+    <div class="container">
+        <div class="cta-band-inner reveal">
+            <div>
+                <h2>Připraveni se <em>registrovat?</em></h2>
+                <p>Registrace je zdarma a trvá pět minut. Přístup ke všem dražbám, licitacím a výběrovým řízením okamžitě.</p>
+            </div>
+            <div class="cta-band-actions">
+                <a href="registrace.html" class="btn btn-rust">Registrovat se zdarma <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                <a href="prodat-nemovitost.html" class="btn btn-ghost-light">Chci prodat nemovitost</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer"><div class="container">
+    <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo-wrap"><img src="img/favicon.png" alt="e-drazby.cz" class="logo-icon"><div class="logo-text">e-dražby<span>.cz</span></div></a><p>Specialista na prodej nemovitostí formou dražeb, licitací a výběrových řízení od roku 2013.</p></div>
+        <div class="footer-col"><h4>Navigace</h4><ul><li><a href="index.html#kategorie">Nabídky</a></li><li><a href="jak-to-funguje.html">Jak to funguje</a></li><li><a href="kontakt.html">Kontakt</a></li><li><a href="cenik.html">Ceník</a></li></ul></div>
+        <div class="footer-col"><h4>Služby</h4><ul><li><a href="online-drazby.html">Dražby</a></li><li><a href="prodat-nemovitost.html">Prodej</a></li><li><a href="formulare.html">Formuláře</a></li></ul></div>
+        <div class="footer-col"><h4>Pro klienty</h4><ul><li><a href="registrace.html">Registrace</a></li><li><a href="hlidaci-pes.html">Hlídací pes</a></li><li><a href="archiv.html">Archiv</a></li><li><a href="testovaci-aukce.html">Testovací aukce</a></li></ul></div>
+        <div class="footer-col"><h4>Právní</h4><ul><li><a href="podminky.html">Podmínky</a></li><li><a href="zasady-cookies.html">Cookies</a></li><li><a href="kariera.html">Kariéra</a></li><li><a href="technicka-podpora.html">Podpora</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2013&ndash;2026 e-dražby.cz s.r.o. IČ: 26014688</p><div class="footer-legal"><a href="podminky.html">Podmínky</a><a href="zasady-cookies.html">Cookies</a><span style="opacity:0.5">|</span><span style="opacity:0.6">SOFFITECH s.r.o.</span></div></div>
+</div></footer>
+
+<div class="cookies-banner" id="cookiesBanner"><div class="container"><div class="cookies-inner"><p class="cookies-text">Tento web využívá cookies potřebné pro fungování stránek.</p><button class="btn btn-filled cookies-btn" id="cookiesAccept">Souhlasím</button></div></div></div>
+
+<script>
+const header=document.getElementById('header');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>30)},{passive:true});
+const navToggle=document.getElementById('navToggle'),mobileNav=document.getElementById('mobileNav'),mobileNavClose=document.getElementById('mobileNavClose');
+navToggle.addEventListener('click',()=>{mobileNav.classList.add('open');document.body.style.overflow='hidden'});
+mobileNavClose.addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow=''});
+mobileNav.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{mobileNav.classList.remove('open');document.body.style.overflow=''})});
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');ro.unobserve(en.target)}})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>{ro.observe(el)});
+const cb=document.getElementById('cookiesBanner'),ca=document.getElementById('cookiesAccept');
+if(localStorage.getItem('edrazby_cookies_accepted')==='true')cb.classList.add('hidden');
+ca.addEventListener('click',()=>{localStorage.setItem('edrazby_cookies_accepted','true');cb.classList.add('hidden')});
+</script>
+</body>
+</html>
