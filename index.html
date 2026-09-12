@@ -30,8 +30,8 @@
             <div class="topbar-right">
                 <div class="topbar-langs">
                     <span class="topbar-lang active">CZ</span>
-                    <span class="topbar-lang">EN</span>
-                    <span class="topbar-lang">DE</span>
+                    <span class="topbar-lang" style="opacity:0.3;cursor:default;" title="Připravujeme">EN</span>
+                    <span class="topbar-lang" style="opacity:0.3;cursor:default;" title="Připravujeme">DE</span>
                 </div>
                 <div class="topbar-divider"></div>
                 <div class="topbar-auth">
@@ -63,7 +63,7 @@
                     <li><a href="archiv.html">Archiv</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
-                <button class="nav-search-btn" aria-label="Vyhledávání">
+                <button class="nav-search-btn" aria-label="Vyhledávání" onclick="document.getElementById('heroSearchForm').scrollIntoView({behavior:'smooth',block:'center'});document.querySelector('.hero-search input').focus();">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
                 <a href="prodat-nemovitost.html" class="btn btn-filled btn-sm nav-cta">Prodat nemovitost</a>
@@ -133,7 +133,7 @@
             </form>
 
             <div class="hero-actions">
-                <a href="#prodat" class="btn btn-rust">
+                <a href="prodat-nemovitost.html" class="btn btn-rust">
                     Chci prodat nemovitost
                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
@@ -205,35 +205,35 @@
             </div>
             <div class="cat-grid">
                 <!-- Row 1-2: Big left card + 2 stacked right -->
-                <a class="cat-card cat-domy reveal" href="#nabidky">
+                <a class="cat-card cat-domy reveal" href="archiv.html">
                     <img src="img/domy1.jpg" alt="Domy" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Domy</div>
                         <div class="cat-card-count">8 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-byty reveal reveal-d1" href="#nabidky">
+                <a class="cat-card cat-byty reveal reveal-d1" href="archiv.html">
                     <img src="img/byty.jpg" alt="Byty" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Byty</div>
                         <div class="cat-card-count">6 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-pozemky reveal reveal-d2" href="#nabidky">
+                <a class="cat-card cat-pozemky reveal reveal-d2" href="archiv.html">
                     <img src="img/pozemky.jpg" alt="Pozemky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Pozemky</div>
                         <div class="cat-card-count">5 nabídek</div>
                     </div>
                 </a>
-                <a class="cat-card cat-komercni reveal reveal-d1" href="#nabidky">
+                <a class="cat-card cat-komercni reveal reveal-d1" href="archiv.html">
                     <img src="img/komercni.jpg" alt="Komerční" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Komerční</div>
                         <div class="cat-card-count">3 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-auta reveal reveal-d2" href="#nabidky">
+                <a class="cat-card cat-auta reveal reveal-d2" href="archiv.html">
                     <img src="img/auta.jpg" alt="Auta" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Auta</div>
@@ -241,28 +241,28 @@
                     </div>
                 </a>
                 <!-- Row 3 -->
-                <a class="cat-card cat-motorky reveal reveal-d1" href="#nabidky">
+                <a class="cat-card cat-motorky reveal reveal-d1" href="archiv.html">
                     <img src="img/motorky.jpg" alt="Motorky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Motorky</div>
                         <div class="cat-card-count">2 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-garaze reveal reveal-d2" href="#nabidky">
+                <a class="cat-card cat-garaze reveal reveal-d2" href="archiv.html">
                     <img src="img/garaze.jpg" alt="Garáže" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Garáže</div>
                         <div class="cat-card-count">4 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-zahranicni reveal reveal-d3" href="#nabidky">
+                <a class="cat-card cat-zahranicni reveal reveal-d3" href="archiv.html">
                     <img src="img/zahranicni.jpg" alt="Zahraniční investice" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Zahraniční investice</div>
                         <div class="cat-card-count">2 nabídky</div>
                     </div>
                 </a>
-                <a class="cat-card cat-neverejne reveal reveal-d3" href="#nabidky">
+                <a class="cat-card cat-neverejne reveal reveal-d3" href="archiv.html">
                     <img src="img/neverejne.jpg" alt="Neveřejné nabídky" loading="lazy">
                     <div class="cat-card-content">
                         <div class="cat-card-name">Exkluzivní &amp; neveřejné</div>
@@ -748,7 +748,7 @@
                     <p>Rádi vám poradíme s výběrem nejvhodnější formy prodeje. Konzultace je zdarma a nezávazná. Ozvěte se nám.</p>
                 </div>
                 <div class="cta-band-actions">
-                    <a href="#kontakt" class="btn btn-rust">Nezávazná konzultace <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    <a href="kontakt.html" class="btn btn-rust">Nezávazná konzultace <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                     <a href="tel:+420603866579" class="btn btn-ghost-light">Zavolat nám</a>
                 </div>
             </div>
@@ -777,7 +777,7 @@
                 <div class="sell-form-card reveal reveal-d1">
                     <h3>Rychlá konzultace</h3>
                     <p class="contact-form-sub">Zanechte nám kontakt a ozveme se vám do 24 hodin.</p>
-                    <form>
+                    <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px 20px;\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#174b51\' stroke-width=\'2\' style=\'width:48px;height:48px;margin:0 auto 16px;display:block;\'><path d=\'M22 11.08V12a10 10 0 11-5.93-9.14\'/><polyline points=\'22 4 12 14.01 9 11.01\'/></svg><h3 style=\'font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:8px;\'>Děkujeme!</h3><p style=\'color:var(--muted);font-size:14px;\'>Vaši zprávu jsme přijali. Ozveme se vám do 24 hodin.</p></div>';">
                         <div class="form-group">
                             <label>Jméno a příjmení *</label>
                             <input type="text" placeholder="Vaše jméno" required>
@@ -830,7 +830,7 @@
                             </div>
                             <div>
                                 <div class="contact-item-label">Email</div>
-                                <div class="contact-item-value">info@e-drazby.cz</div>
+                                <div class="contact-item-value"><a href="mailto:info@e-drazby.cz">info@e-drazby.cz</a></div>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -839,7 +839,7 @@
                             </div>
                             <div>
                                 <div class="contact-item-label">Telefon</div>
-                                <div class="contact-item-value">+420 603 866 579</div>
+                                <div class="contact-item-value"><a href="tel:+420603866579">+420 603 866 579</a></div>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -859,7 +859,7 @@
                 <div class="contact-form-wrap reveal">
                     <h3 class="contact-form-title">Napište nám</h3>
                     <p class="contact-form-sub">Odpovíme vám do 24 hodin v pracovní dny.</p>
-                    <form>
+                    <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px 20px;\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#174b51\' stroke-width=\'2\' style=\'width:48px;height:48px;margin:0 auto 16px;display:block;\'><path d=\'M22 11.08V12a10 10 0 11-5.93-9.14\'/><polyline points=\'22 4 12 14.01 9 11.01\'/></svg><h3 style=\'font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:8px;\'>Děkujeme!</h3><p style=\'color:var(--muted);font-size:14px;\'>Vaši zprávu jsme přijali. Ozveme se vám do 24 hodin.</p></div>';">
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Jméno *</label>
@@ -923,16 +923,16 @@
                     </a>
                     <p>Specialista na prodej nemovitostí formou dražeb, licitací a výběrových řízení. Transparentně a za nejlepší cenu od roku 2013.</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank" aria-label="Facebook">
+                        <a href="javascript:void(0)" aria-label="Facebook" style="opacity:0.4;pointer-events:none;">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
                         </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn">
+                        <a href="javascript:void(0)" aria-label="LinkedIn" style="opacity:0.4;pointer-events:none;">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
-                        <a href="#" target="_blank" aria-label="Instagram">
+                        <a href="javascript:void(0)" aria-label="Instagram" style="opacity:0.4;pointer-events:none;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
-                        <a href="#" target="_blank" aria-label="YouTube">
+                        <a href="javascript:void(0)" aria-label="YouTube" style="opacity:0.4;pointer-events:none;">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#0d1a24"/></svg>
                         </a>
                     </div>
@@ -940,8 +940,8 @@
                 <div class="footer-col">
                     <h4>Navigace</h4>
                     <ul>
-                        <li><a href="#kategorie">Nabídky</a></li>
-                        <li><a href="#sluzby">Služby</a></li>
+                        <li><a href="archiv.html">Nabídky</a></li>
+                        <li><a href="online-drazby.html">Služby</a></li>
                         <li><a href="jak-to-funguje.html">Jak to funguje</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
                         <li><a href="cenik.html">Ceník služeb</a></li>
@@ -998,6 +998,7 @@
             <div class="cookies-inner">
                 <p class="cookies-text">Provozovatel webu e-dražby.cz a jeho mutací, společnost e-dražby.cz s.r.o., se sídlem Nerudova 956/24, 500 02 Hradec Králové, IČ: 26014688, využívá na tomto webu cookies potřebné pro fungování webových stránek. Nepoužíváme je pro statistické ani marketingové účely.</p>
                 <button class="btn btn-filled cookies-btn" id="cookiesAccept">Souhlasím</button>
+                <button class="btn btn-ghost btn-sm cookies-btn" onclick="document.getElementById('cookiesBanner').classList.add('hidden');">Odmítám</button>
             </div>
         </div>
     </div>
@@ -1070,7 +1071,14 @@
         if (heroSearchForm) {
             heroSearchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                window.location.href = 'archiv.html';
+                const q = this.querySelector('input[name="q"]').value.trim();
+                const kraj = this.querySelector('select[name="kraj"]').value;
+                let url = 'archiv.html';
+                const params = [];
+                if (q) params.push('q=' + encodeURIComponent(q));
+                if (kraj) params.push('kraj=' + encodeURIComponent(kraj));
+                if (params.length) url += '?' + params.join('&');
+                window.location.href = url;
             });
         }
 

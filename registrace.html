@@ -286,7 +286,7 @@
                     <div class="sidebar-card reveal">
                         <h3>Rychlá registrace</h3>
                         <p>Vyplňte základní údaje a dokončete registraci na portálu e-dražby.cz</p>
-                        <form action="#" onsubmit="event.preventDefault();alert('Děkujeme za váš zájem! Registrace bude brzy k dispozici. Kontaktujte nás na info@e-drazby.cz nebo na tel. +420 603 866 579.');" style="display: flex; flex-direction: column; gap: 12px;">
+                        <form action="#" onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px 20px;\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#174b51\' stroke-width=\'2\' style=\'width:48px;height:48px;margin:0 auto 16px;display:block;\'><path d=\'M22 11.08V12a10 10 0 11-5.93-9.14\'/><polyline points=\'22 4 12 14.01 9 11.01\'/></svg><h3 style=\'font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:8px;\'>Děkujeme!</h3><p style=\'color:var(--muted);font-size:14px;\'>Vaši zprávu jsme přijali. Ozveme se vám do 24 hodin.</p></div>';" style="display: flex; flex-direction: column; gap: 12px;">
                             <div class="form-group">
                                 <label for="reg-typ">Typ registrace</label>
                                 <select id="reg-typ" name="typ">
@@ -335,7 +335,7 @@
                     <div class="sidebar-card reveal" style="margin-top: 16px;">
                         <h3>Již máte účet?</h3>
                         <p>Přihlaste se přímo do portálu e-dražby.cz a pokračujte ve svých aktivitách.</p>
-                        <a href="kontakt.html" class="btn btn-filled" style="width: 100%; justify-content: center;">
+                        <a href="registrace.html#prihlaseni" class="btn btn-filled" style="width: 100%; justify-content: center;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
                             Přihlásit se
                         </a>
@@ -344,7 +344,7 @@
                             <span style="font-size: 12px; color: var(--muted-light);">nebo</span>
                             <div style="height: 1px; flex: 1; background: var(--line-light);"></div>
                         </div>
-                        <a href="kontakt.html" style="display: block; text-align: center; font-size: 13px; color: var(--teal); font-weight: 500;">Zapomenuté heslo</a>
+                        <a href="javascript:void(0)" onclick="alert('Funkce obnovení hesla bude brzy k dispozici.');" style="display: block; text-align: center; font-size: 13px; color: var(--teal); font-weight: 500;">Zapomenuté heslo</a>
                     </div>
 
                     <!-- Testovací aukce -->

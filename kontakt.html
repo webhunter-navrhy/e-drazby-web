@@ -213,7 +213,7 @@
             <div class="contact-form-wrap reveal reveal-d2">
                 <div class="contact-form-title">Napište nám</div>
                 <div class="contact-form-sub">Odpovíme vám nejpozději do jednoho pracovního dne.</div>
-                <form>
+                <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px 20px;\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#174b51\' stroke-width=\'2\' style=\'width:48px;height:48px;margin:0 auto 16px;display:block;\'><path d=\'M22 11.08V12a10 10 0 11-5.93-9.14\'/><polyline points=\'22 4 12 14.01 9 11.01\'/></svg><h3 style=\'font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:8px;\'>Děkujeme!</h3><p style=\'color:var(--muted);font-size:14px;\'>Vaši zprávu jsme přijali. Ozveme se vám do 24 hodin.</p></div>';">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="fname">Jméno *</label>
