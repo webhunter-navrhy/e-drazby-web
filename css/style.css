@@ -327,12 +327,12 @@ ul { list-style: none; }
 }
 .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 52px);
+    font-size: clamp(34px, 4.2vw, 56px);
     font-weight: 600;
     color: var(--paper-white);
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -0.03em;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 .hero h1 em {
     font-style: italic; font-weight: 500;
@@ -340,10 +340,10 @@ ul { list-style: none; }
 }
 .hero-sub {
     font-size: clamp(15px, 1.4vw, 17px);
-    color: rgba(244,238,230,0.5);
-    line-height: 1.75;
-    max-width: 460px;
-    margin-bottom: 32px;
+    color: rgba(244,238,230,0.55);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 36px;
 }
 
 /* Hero search */
@@ -455,16 +455,17 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    padding: 22px 0;
+    gap: 48px;
+    padding: 26px 0;
     flex-wrap: wrap;
 }
 .trust-main {
     font-family: var(--font-display);
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     text-align: center;
+    letter-spacing: -0.01em;
 }
 .trust-main em {
     color: var(--rust);
@@ -570,9 +571,10 @@ ul { list-style: none; }
 }
 .cat-card-name {
     font-family: var(--font-display);
-    font-size: 17px; font-weight: 700;
+    font-size: 18px; font-weight: 600;
     color: var(--white);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
 }
 .cat-card-count {
     font-size: 12px;
@@ -696,8 +698,9 @@ ul { list-style: none; }
 }
 .listing-price {
     font-family: var(--font-display);
-    font-size: 18px; font-weight: 700;
+    font-size: 19px; font-weight: 700;
     color: var(--ink);
+    letter-spacing: -0.01em;
 }
 .listing-detail {
     font-size: 11px; color: var(--muted);
@@ -723,7 +726,7 @@ ul { list-style: none; }
 }
 .service-card {
     background: var(--paper-white);
-    padding: 40px 28px;
+    padding: 44px 32px;
     transition: all var(--transition);
     display: flex; flex-direction: column;
     position: relative;
@@ -760,8 +763,8 @@ ul { list-style: none; }
 .service-card p {
     font-size: 14px;
     color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
+    line-height: 1.75;
+    margin-bottom: 28px;
     flex: 1;
 }
 .service-link {
@@ -784,10 +787,14 @@ ul { list-style: none; }
     counter-reset: process-counter;
 }
 .process-step {
-    padding: 36px 28px;
+    padding: 40px 28px;
     border-right: 1px solid var(--line-light);
     position: relative;
     counter-increment: process-counter;
+    transition: background var(--transition);
+}
+.process-step:hover {
+    background: var(--paper-soft);
 }
 .process-step:last-child { border-right: none; }
 .process-step-num {
@@ -816,13 +823,13 @@ ul { list-style: none; }
 .process-step:hover .process-step-icon svg { color: var(--white); }
 .process-step h4 {
     font-family: var(--font-display);
-    font-size: 17px; font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 17px; font-weight: 600;
+    margin-bottom: 10px;
 }
 .process-step p {
     font-size: 13px;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 .process-connector {
     position: absolute;
@@ -864,13 +871,14 @@ ul { list-style: none; }
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: var(--radius);
-    padding: 32px 24px;
+    padding: 36px 28px;
     transition: all var(--transition);
 }
 .feature-card:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(255,255,255,0.12);
-    transform: translateY(-2px);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.14);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
 }
 .feature-card-icon {
     width: 52px; height: 52px;
@@ -884,14 +892,14 @@ ul { list-style: none; }
 .feature-card-icon svg { width: 24px; height: 24px; color: var(--rust-light); }
 .feature-card h4 {
     font-family: var(--font-display);
-    font-size: 17px; font-weight: 700;
+    font-size: 17px; font-weight: 600;
     color: var(--paper-white);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 .feature-card p {
     font-size: 14px;
-    color: rgba(244,238,230,0.45);
-    line-height: 1.7;
+    color: rgba(244,238,230,0.5);
+    line-height: 1.75;
 }
 .feature-card--highlight {
     grid-row: span 2;
@@ -965,8 +973,9 @@ ul { list-style: none; }
 }
 .contact-info h3 {
     font-family: var(--font-display);
-    font-size: 22px; font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 22px; font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
 }
 .contact-info > p {
     font-size: 15px;
@@ -1013,7 +1022,8 @@ ul { list-style: none; }
     background: var(--paper-white);
     border: 1px solid var(--line-light);
     border-radius: var(--radius);
-    padding: clamp(24px, 3vw, 36px);
+    padding: clamp(28px, 3.5vw, 44px);
+    box-shadow: 0 4px 24px rgba(16,24,32,0.04);
 }
 .contact-form-title {
     font-family: var(--font-display);
@@ -1066,7 +1076,7 @@ ul { list-style: none; }
 .footer {
     background: var(--navy);
     color: rgba(244,238,230,0.45);
-    padding: 56px 0 0;
+    padding: 64px 0 0;
 }
 .footer-grid {
     display: grid;
@@ -1162,17 +1172,19 @@ ul { list-style: none; }
     width: 140px;
     height: 140px;
     object-fit: contain;
-    border-radius: 24px;
+    border-radius: 28px;
     background: var(--paper-white);
-    padding: 20px;
+    padding: 24px;
     border: 1px solid var(--line-light);
+    box-shadow: 0 8px 32px rgba(16,24,32,0.06);
 }
 .about-logo-name {
     font-family: var(--font-display);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink);
     text-align: center;
+    letter-spacing: -0.02em;
 }
 .about-logo-name span { color: var(--rust); }
 
@@ -1222,7 +1234,8 @@ ul { list-style: none; }
     background: var(--paper-white);
     border: 1px solid var(--line-light);
     border-radius: var(--radius);
-    padding: clamp(24px, 3vw, 36px);
+    padding: clamp(28px, 3.5vw, 44px);
+    box-shadow: 0 4px 24px rgba(16,24,32,0.04);
 }
 .sell-form-card h3 {
     font-family: var(--font-display);
