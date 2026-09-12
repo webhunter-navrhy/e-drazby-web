@@ -28,8 +28,8 @@
     --white: #ffffff;
     --font-display: 'Plus Jakarta Sans', sans-serif;
     --font-text: 'Inter', sans-serif;
-    --container: min(100% - 48px, 1200px);
-    --container-wide: min(100% - 48px, 1360px);
+    --container: min(100% - 32px, 1200px);
+    --container-wide: min(100% - 32px, 1360px);
     --radius: 16px;
     --radius-sm: 10px;
     --pill: 999px;
@@ -1918,13 +1918,252 @@ ul { list-style: none; }
 /* =============================================
    RESPONSIVE
 ============================================= */
-@media (max-width: 1100px) {
+/* =============================================
+   MOBILE FIRST RESPONSIVE
+   ============================================= */
+
+/* --- SMALL SCREENS (base → 620px) --- */
+@media (max-width: 620px) {
+    :root {
+        --container: min(100% - 24px, 1200px);
+        --container-wide: min(100% - 24px, 1360px);
+    }
+
+    /* Typography scaling */
+    .section { padding: 64px 0; }
+    .section-header { margin-bottom: 36px; }
+    .section-title { font-size: 26px; line-height: 1.15; }
+    .section-desc { font-size: 14.5px; }
+    .section-eyebrow { font-size: 10px; margin-bottom: 12px; }
+    .section-header-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+    /* Topbar hidden */
+    .topbar { display: none; }
+
+    /* Header mobile */
+    .header-inner { height: 64px; }
+    .nav-links, .nav-search-btn, .nav-cta { display: none; }
+    .nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+    /* Hero — full-width stacked, no clipping */
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    .hero-text {
+        padding: 48px 20px 40px;
+        order: 1;
+    }
+    .hero h1 { font-size: 30px; line-height: 1.12; margin-bottom: 18px; }
+    .hero-eyebrow { font-size: 10px; margin-bottom: 20px; letter-spacing: 0.14em; }
+    .hero-eyebrow::before { width: 20px; }
+    .hero-sub { font-size: 14.5px; margin-bottom: 28px; line-height: 1.7; }
+    .hero-search {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 8px;
+        gap: 6px;
+    }
+    .hero-search input { padding: 14px 16px; font-size: 15px; }
+    .hero-search select { min-width: auto; width: 100%; padding: 13px 14px; font-size: 14px; }
+    .hero-search-btn { width: 100%; justify-content: center; padding: 14px 20px; font-size: 14px; }
+    .hero-actions { flex-direction: column; gap: 10px; }
+    .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; font-size: 14px; }
+    .hero-image {
+        height: 240px;
+        order: 0;
+    }
+    .hero-image::after {
+        background: linear-gradient(180deg, rgba(10,20,30,0.3) 0%, transparent 50%, rgba(10,20,30,0.5) 100%);
+    }
+    .hero-stats {
+        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+        order: 2;
+    }
+    .hero-stat { padding: 20px 16px; }
+    .hero-stat-val { font-size: 22px; }
+    .hero-stat-label { font-size: 10.5px; }
+
+    /* Categories */
+    .cat-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 6px;
+    }
+    .cat-domy, .cat-byty, .cat-pozemky, .cat-komercni, .cat-auta,
+    .cat-motorky, .cat-garaze, .cat-zahranicni, .cat-neverejne {
+        grid-column: span 1;
+    }
+    .cat-domy { grid-column: span 2; }
+    .cat-card { min-height: 140px; border-radius: 12px; }
+    .cat-card-content { padding: 16px; }
+    .cat-card-name { font-size: 15px; }
+    .cat-card-count { font-size: 11px; }
+
+    /* Listings */
+    .listings-grid { grid-template-columns: 1fr; gap: 16px; }
+    .listing-img { height: 220px; }
+    .listing-body { padding: 20px 18px 22px; }
+    .listing-title { font-size: 15px; margin-bottom: 14px; }
+    .listing-price { font-size: 18px; }
+    .listings-more { margin-top: 32px; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 32px 24px; }
+    .service-num { font-size: 36px; }
+
+    /* Process */
+    .process-grid { grid-template-columns: 1fr; }
+    .process-step {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 32px 20px;
+    }
+    .process-step:last-child { border-bottom: none; }
+    .process-connector { display: none !important; }
+
+    /* Features */
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { padding: 28px 22px; }
+    .feature-card--highlight { grid-row: span 1; }
+    .feature-card--highlight h4 { font-size: 19px; }
+
+    /* CTA Band */
+    .cta-band-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 56px 0;
+    }
+    .cta-band h2 { font-size: 24px; }
+    .cta-band-actions { flex-direction: column; width: 100%; }
+    .cta-band-actions .btn { width: 100%; justify-content: center; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; }
+    .about-logo-wrap { text-align: center; margin-top: 28px; }
+    .about-logo-img { width: 100px; height: 100px; padding: 18px; border-radius: 22px; }
+
+    /* Sell / Contact */
+    .sell-grid { grid-template-columns: 1fr; }
+    .sell-form-card { margin-top: 24px; padding: 24px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 24px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer { padding: 48px 0 0; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-grid .footer-brand { padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-col h4 { margin-bottom: 12px; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-legal { flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+    /* Cookies */
+    .cookies-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+    }
+    .cookies-text { font-size: 12px; }
+
+    /* Subpages */
+    .page-hero { padding: 48px 0 40px; }
+    .page-hero h1 { font-size: 26px; }
+    .sidebar-layout { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+
+    /* Detail page */
+    .detail-layout { grid-template-columns: 1fr; }
+    .detail-sidebar { position: static; }
+    .detail-gallery { height: 260px; }
+    .detail-gallery-title { font-size: 22px; }
+    .detail-specs-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .detail-spec { padding: 16px; }
+    .detail-spec-value { font-size: 14px; }
+    .detail-related-grid { grid-template-columns: 1fr; }
+    .detail-price-card { padding: 24px; }
+    .detail-price-main { font-size: 28px; }
+    .detail-photos-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .detail-photo:first-child { grid-column: span 2; grid-row: span 1; }
+
+    /* Trust strip */
+    .trust-inner { padding: 16px 0; gap: 12px; }
+    .trust-main { font-size: 13px; }
+    .trust-badges { display: none; }
+
+    /* Buttons touch-friendly */
+    .btn { padding: 14px 28px; font-size: 14px; }
+    .btn-sm { padding: 12px 20px; }
+    .btn-lg { padding: 17px 36px; }
+
+    /* Benefits */
+    .benefits-grid { grid-template-columns: 1fr; }
+}
+
+/* --- MEDIUM SCREENS (621px → 768px) --- */
+@media (min-width: 621px) and (max-width: 768px) {
+    .section { padding: 80px 0; }
+
+    .topbar-left .topbar-divider:last-of-type,
+    .topbar-left .topbar-contact:last-of-type { display: none; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { height: 360px; }
+    .hero-image::after {
+        background: linear-gradient(180deg, var(--navy) 0%, transparent 40%);
+    }
+    .hero-stats { position: relative; }
+    .hero-text { padding: 56px 32px 48px; }
+
+    .cat-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 8px;
+    }
+    .cat-domy { grid-column: span 4; }
+    .cat-byty, .cat-pozemky, .cat-komercni, .cat-auta { grid-column: span 2; }
+    .cat-motorky, .cat-garaze, .cat-zahranicni, .cat-neverejne { grid-column: span 2; }
+    .cat-domy { grid-row: span 1; }
+    .cat-card { min-height: 160px; }
+
+    .listings-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-step:nth-child(2) { border-right: none; }
+    .process-step:nth-child(1),
+    .process-step:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .process-connector { display: none !important; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card--highlight { grid-row: span 1; }
+    .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .sell-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .sidebar-layout { grid-template-columns: 1fr; }
+    .sidebar-card { position: static; }
+    .two-col { grid-template-columns: 1fr; }
+    .trust-badges { display: none; }
+    .cookies-inner { flex-direction: column; text-align: center; gap: 16px; }
+}
+
+/* --- TABLET SCREENS (769px → 1100px) --- */
+@media (min-width: 769px) and (max-width: 1100px) {
+    :root {
+        --container: min(100% - 40px, 1200px);
+        --container-wide: min(100% - 40px, 1360px);
+    }
+
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-image { height: 50vh; }
     .hero-image::after {
         background: linear-gradient(180deg, var(--navy) 0%, transparent 40%);
     }
     .hero-stats { position: relative; }
+
     .cat-grid {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 200px 200px 180px;
@@ -1938,12 +2177,13 @@ ul { list-style: none; }
     .cat-garaze { grid-column: span 2; }
     .cat-zahranicni { grid-column: span 2; }
     .cat-neverejne { grid-column: span 3; }
+
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .listings-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
     .process-step:nth-child(2) { border-right: none; }
     .process-step:nth-child(1),
-    .process-step:nth-child(2) { border-bottom: 1px solid var(--line-light); }
+    .process-step:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
     .process-connector { display: none !important; }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .feature-card--highlight { grid-row: span 1; }
@@ -1954,69 +2194,12 @@ ul { list-style: none; }
     .benefits-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 768px) {
-    .topbar-left .topbar-divider:last-of-type,
-    .topbar-left .topbar-contact:last-of-type { display: none; }
-    .trust-badges { display: none; }
-    .listings-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
-    .features-grid { grid-template-columns: 1fr; }
-    .cookies-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 16px;
+/* --- LARGE DESKTOP (1101px+) — container padding restore --- */
+@media (min-width: 1101px) {
+    :root {
+        --container: min(100% - 48px, 1200px);
+        --container-wide: min(100% - 48px, 1360px);
     }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-logo-wrap { margin-top: 32px; }
-    .sell-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .benefits-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 620px) {
-    .topbar { display: none; }
-    .nav-links, .nav-search-btn, .nav-cta { display: none; }
-    .nav-toggle { display: flex; align-items: center; justify-content: center; }
-    .hero-text { padding: 40px 24px 48px; }
-    .hero-search { flex-direction: column; }
-    .hero-search select { min-width: auto; }
-    .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .cat-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-    }
-    .cat-domy, .cat-byty, .cat-pozemky, .cat-komercni, .cat-auta,
-    .cat-motorky, .cat-garaze, .cat-zahranicni, .cat-neverejne {
-        grid-column: span 1;
-    }
-    .cat-domy { grid-column: span 2; }
-    .cat-card { min-height: 160px; }
-    .services-grid, .listings-grid, .process-grid {
-        grid-template-columns: 1fr;
-    }
-    .process-step { border-right: none !important; border-bottom: 1px solid var(--line-light); }
-    .process-step:last-child { border-bottom: none; }
-    .section-header-row { flex-direction: column; align-items: flex-start; }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .cta-band-inner { flex-direction: column; text-align: center; }
-    .cta-band-actions { flex-direction: column; width: 100%; }
-    .cta-band-actions .btn { width: 100%; justify-content: center; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions .btn { width: 100%; justify-content: center; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-logo-wrap { text-align: center; margin-top: 32px; }
-    .sell-grid { grid-template-columns: 1fr; }
-    .sell-form-card { margin-top: 32px; }
-    .page-hero { padding: clamp(40px, 6vw, 60px) 0; }
-    .sidebar-layout { grid-template-columns: 1fr; }
-    .two-col { grid-template-columns: 1fr; }
-    .detail-layout { grid-template-columns: 1fr; }
-    .detail-sidebar { position: static; }
-    .detail-gallery { height: 300px; }
-    .detail-specs-grid { grid-template-columns: repeat(2, 1fr); }
-    .detail-related-grid { grid-template-columns: 1fr; }
 }
 
 /* =============================================
@@ -2274,12 +2457,13 @@ ul { list-style: none; }
     margin-top: 16px;
 }
 
-@media (max-width: 1100px) {
+/* Detail page responsive — tablet */
+@media (min-width: 621px) and (max-width: 1100px) {
     .detail-layout { grid-template-columns: 1fr; }
     .detail-sidebar { position: static; }
     .detail-gallery { height: 400px; }
 }
-@media (max-width: 768px) {
+@media (min-width: 621px) and (max-width: 768px) {
     .detail-specs-grid { grid-template-columns: repeat(2, 1fr); }
     .detail-related-grid { grid-template-columns: 1fr; }
     .detail-photos-grid { grid-template-columns: repeat(2, 1fr); }
