@@ -85,14 +85,17 @@
             </div>
         </div>
 
-        <!-- Galerie -->
+        <!-- Fotogalerie -->
         <div class="detail-section reveal reveal-d1">
-            <div class="detail-section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Fotogalerie</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
-                <img src="img/nabidky/octavia2/1.png" alt="Škoda Octavia — pohled zepředu" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                <img src="img/nabidky/octavia2/2.png" alt="Škoda Octavia — pohled z boku" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                <img src="img/nabidky/octavia2/3.png" alt="Škoda Octavia — interiér" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                <img src="img/nabidky/octavia2/4.png" alt="Škoda Octavia — detail" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
+            <div class="detail-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                Fotogalerie
+            </div>
+            <div class="detail-photos-grid" id="photoGallery">
+                <div class="detail-photo" onclick="openLightbox(0)"><img src="img/nabidky/octavia2/1.png" alt="Foto 1" loading="lazy"></div>
+                <div class="detail-photo" onclick="openLightbox(1)"><img src="img/nabidky/octavia2/2.png" alt="Foto 2" loading="lazy"></div>
+                <div class="detail-photo" onclick="openLightbox(2)"><img src="img/nabidky/octavia2/3.png" alt="Foto 3" loading="lazy"></div>
+                <div class="detail-photo" onclick="openLightbox(3)"><img src="img/nabidky/octavia2/4.png" alt="Foto 4" loading="lazy"></div>
             </div>
         </div>
 
@@ -270,6 +273,21 @@
 
 <div class="cookies-banner" id="cookiesBanner"><div class="container"><div class="cookies-inner"><p class="cookies-text">Tento web využívá cookies potřebné pro fungování stránek.</p><button class="btn btn-filled cookies-btn" id="cookiesAccept">Souhlasím</button></div></div></div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
 <script>
 const header=document.getElementById('header');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>30)},{passive:true});
 const nt=document.getElementById('navToggle'),mn=document.getElementById('mobileNav'),mc=document.getElementById('mobileNavClose');
@@ -281,6 +299,35 @@ document.querySelectorAll('.reveal').forEach(el=>{ro.observe(el)});
 const cb=document.getElementById('cookiesBanner'),ca=document.getElementById('cookiesAccept');
 if(localStorage.getItem('edrazby_cookies_accepted')==='true')cb.classList.add('hidden');
 ca.addEventListener('click',()=>{localStorage.setItem('edrazby_cookies_accepted','true');cb.classList.add('hidden')});
+
+// Lightbox
+const galleryImages = ['img/nabidky/octavia2/1.png','img/nabidky/octavia2/2.png','img/nabidky/octavia2/3.png','img/nabidky/octavia2/4.png'];
+let currentImg = 0;
+function openLightbox(i) {
+    currentImg = i;
+    document.getElementById('lightboxImg').src = galleryImages[i];
+    document.getElementById('lightboxCounter').textContent = (i+1) + ' / ' + galleryImages.length;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function navLightbox(dir) {
+    currentImg = (currentImg + dir + galleryImages.length) % galleryImages.length;
+    document.getElementById('lightboxImg').src = galleryImages[currentImg];
+    document.getElementById('lightboxCounter').textContent = (currentImg+1) + ' / ' + galleryImages.length;
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+});
 </script>
 </body>
 </html>
