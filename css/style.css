@@ -353,14 +353,14 @@ ul { list-style: none; }
 .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(36px, 4.5vw, 60px);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--paper-white);
     line-height: 1.08;
     letter-spacing: -0.035em;
     margin-bottom: 28px;
 }
 .hero h1 em {
-    font-style: italic; font-weight: 400;
+    font-style: italic; font-weight: 300;
     color: var(--gold-light);
 }
 .hero-sub {
@@ -553,13 +553,13 @@ ul { list-style: none; }
 .section-title {
     font-family: var(--font-display);
     font-size: clamp(30px, 3.8vw, 48px);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--ink);
-    line-height: 1.12;
+    line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 16px;
 }
-.section-title em { font-style: italic; font-weight: 400; }
+.section-title em { font-style: italic; font-weight: 300; }
 .section-title--light { color: var(--paper-white); }
 .section-desc {
     font-size: 16px;
@@ -765,24 +765,47 @@ ul { list-style: none; }
 /* =============================================
    SERVICES (01-04)
 ============================================= */
-.services-section { background: var(--paper); }
+.services-section { background: var(--navy); overflow: hidden; position: relative; }
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(21,82,90,0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+.services-section .section-eyebrow { color: var(--rust-light); }
+.services-section .section-eyebrow::before { background: var(--rust-light); }
+.services-section .section-title { color: var(--paper-white); }
+.services-section .section-title em { color: var(--gold-light); }
+.services-section .section-desc { color: rgba(244,238,230,0.45); }
+.services-section .section-header-row .btn-ghost {
+    color: var(--paper-white);
+    border-color: rgba(255,255,255,0.15);
+}
+.services-section .section-header-row .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+}
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: var(--line-light);
+    background: rgba(255,255,255,0.06);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 1;
 }
 .service-card {
-    background: var(--paper-white);
+    background: rgba(255,255,255,0.03);
     padding: 48px 34px;
     transition: all var(--transition);
     display: flex; flex-direction: column;
     position: relative;
 }
-.service-card:hover { background: var(--white); }
+.service-card:hover { background: rgba(255,255,255,0.07); }
 .service-card::before {
     content: '';
     position: absolute;
@@ -797,35 +820,35 @@ ul { list-style: none; }
 .service-num {
     font-family: var(--font-display);
     font-size: 44px; font-weight: 300;
-    color: var(--line);
+    color: rgba(255,255,255,0.06);
     margin-bottom: 22px;
     line-height: 1;
     letter-spacing: -0.04em;
     transition: color var(--transition);
 }
-.service-card:hover .service-num { color: rgba(184,85,58,0.12); }
+.service-card:hover .service-num { color: rgba(184,85,58,0.18); }
 .service-card h3 {
     font-family: var(--font-display);
     font-size: 19px; font-weight: 600;
-    color: var(--ink);
+    color: var(--paper-white);
     margin-bottom: 12px;
     line-height: 1.3;
     letter-spacing: -0.01em;
 }
 .service-card p {
     font-size: 14px;
-    color: var(--muted);
+    color: rgba(244,238,230,0.45);
     line-height: 1.8;
     margin-bottom: 32px;
     flex: 1;
 }
 .service-link {
     font-size: 13px; font-weight: 600;
-    color: var(--teal);
+    color: var(--rust-light);
     display: inline-flex; align-items: center; gap: 6px;
     transition: gap 0.3s var(--ease), color var(--transition);
 }
-.service-link:hover { gap: 12px; color: var(--rust); }
+.service-link:hover { gap: 12px; color: var(--gold-light); }
 .service-link svg { width: 14px; height: 14px; }
 
 /* =============================================
@@ -1931,14 +1954,11 @@ ul { list-style: none; }
     .benefits-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 700px) {
-    .listings-grid { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 768px) {
     .topbar-left .topbar-divider:last-of-type,
     .topbar-left .topbar-contact:last-of-type { display: none; }
     .trust-badges { display: none; }
+    .listings-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
     .features-grid { grid-template-columns: 1fr; }
     .cookies-inner {
@@ -2105,9 +2125,9 @@ ul { list-style: none; }
 }
 .detail-price-main {
     font-family: var(--font-display);
-    font-size: 30px; font-weight: 600;
-    color: var(--ink); margin-bottom: 18px;
-    letter-spacing: -0.02em;
+    font-size: 34px; font-weight: 500;
+    color: var(--ink); margin-bottom: 20px;
+    letter-spacing: -0.03em;
 }
 .detail-price-row {
     display: flex; justify-content: space-between;
